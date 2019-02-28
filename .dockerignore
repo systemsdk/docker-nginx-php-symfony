@@ -1,0 +1,12 @@
+/.git*
+/.idea*
+var/mysql-data
+vendor/
+.dockerignore
+.editorconfig
+.env.local.php
+Dockerfile
+docker-compose.yml
+docker-compose-test-ci.yml
+docker-compose-prod.yml
+Makefile
