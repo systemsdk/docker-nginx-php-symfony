@@ -8,6 +8,9 @@
     "codedungeon/phpunit-result-printer": {
         "version": "0.26.0"
     },
+    "composer/ca-bundle": {
+        "version": "1.1.4"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -188,6 +191,18 @@
         },
         "files": [
             "config/packages/sensio_framework_extra.yaml"
+        ]
+    },
+    "sensiolabs/security-checker": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "05daf6b214e54aed4089f3480f944a67ac3a7889"
+        },
+        "files": [
+            "config/packages/security_checker.yaml"
         ]
     },
     "swiftmailer/swiftmailer": {

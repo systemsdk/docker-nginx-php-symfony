@@ -107,9 +107,11 @@ Note: OS recommendation - Linux Ubuntu based.
 * [phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer)
 * [browser-kit](https://github.com/symfony/browser-kit)
 * [css-selector](https://github.com/symfony/css-selector)
+* [security-checker](https://github.com/sensiolabs/security-checker)
 
 ## General guidelines
 * **[General](docs/general.md)**
+* [Configuring IDE JetBrains PhpStorm](docs/phpstorm.md)
 
 ## Working on your project
 1. For new feature development, fork `develop` branch into a new branch with one of the two patterns:

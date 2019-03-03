@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1545c63457d62e5ca7930f3754b2894e",
+    "content-hash": "15d86f2c098122c8325dbe59a1cc917d",
     "packages": [
+        {
+            "name": "composer/ca-bundle",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
+                "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "php": "^5.3.2 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
+                "psr/log": "^1.0",
+                "symfony/process": "^2.5 || ^3.0 || ^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\CaBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
+            "keywords": [
+                "cabundle",
+                "cacert",
+                "certificate",
+                "ssl",
+                "tls"
+            ],
+            "time": "2019-01-28T09:30:10+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
@@ -2240,6 +2296,52 @@
                 "controllers"
             ],
             "time": "2018-12-11T16:59:23+00:00"
+        },
+        {
+            "name": "sensiolabs/security-checker",
+            "version": "v5.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/security-checker.git",
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/46be3f58adac13084497961e10eed9a7fb4d44d1",
+                "reference": "46be3f58adac13084497961e10eed9a7fb4d44d1",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "php": ">=5.5.9",
+                "symfony/console": "~2.7|~3.0|~4.0"
+            },
+            "bin": [
+                "security-checker"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SensioLabs\\Security\\": "SensioLabs/Security"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien.potencier@gmail.com"
+                }
+            ],
+            "description": "A security checker for your composer.lock",
+            "time": "2018-12-19T17:14:59+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5697,16 +5799,16 @@
         },
         {
             "name": "codedungeon/phpunit-result-printer",
-            "version": "0.26.0",
+            "version": "0.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikeerickson/phpunit-pretty-result-printer.git",
-                "reference": "55ddb3894b28f70df90b6053cb121da91cac1dc1"
+                "reference": "70efe139f174954392582103355a1b4a3d9022e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikeerickson/phpunit-pretty-result-printer/zipball/55ddb3894b28f70df90b6053cb121da91cac1dc1",
-                "reference": "55ddb3894b28f70df90b6053cb121da91cac1dc1",
+                "url": "https://api.github.com/repos/mikeerickson/phpunit-pretty-result-printer/zipball/70efe139f174954392582103355a1b4a3d9022e5",
+                "reference": "70efe139f174954392582103355a1b4a3d9022e5",
                 "shasum": ""
             },
             "require": {
@@ -5746,7 +5848,7 @@
                 "result-printer",
                 "testing"
             ],
-            "time": "2019-02-05T19:45:42+00:00"
+            "time": "2019-02-28T18:52:43+00:00"
         },
         {
             "name": "easycorp/easy-log-handler",
