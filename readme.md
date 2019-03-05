@@ -88,7 +88,6 @@ Note: OS recommendation - Linux Ubuntu based.
     make migrate-prod
     make migrate
     
-    make fixtures-prod
     make fixtures
     
     make phpunit
