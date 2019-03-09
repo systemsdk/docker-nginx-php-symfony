@@ -1,6 +1,7 @@
 /.git*
 /.idea*
 var/mysql-data
+var/rabbitmq
 vendor/
 .dockerignore
 .editorconfig

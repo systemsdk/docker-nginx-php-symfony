@@ -208,6 +208,9 @@
     "swiftmailer/swiftmailer": {
         "version": "v6.1.3"
     },
+    "symfony/amqp-pack": {
+        "version": "v1.0.12"
+    },
     "symfony/asset": {
         "version": "v4.2.3"
     },
@@ -335,6 +338,18 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/messenger": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "f11dfa18618a8a5dd853ea3a302db2e0557e031c"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
     },
     "symfony/monolog-bridge": {
         "version": "v4.2.3"

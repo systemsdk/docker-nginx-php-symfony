@@ -29,12 +29,15 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       supervisor \
       cron \
       libzip-dev \
+      librabbitmq-dev \
+    && pecl install amqp \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-install \
       pdo_mysql \
       sockets \
       intl \
-      zip && \
+      zip \
+    && docker-php-ext-enable amqp && \
       rm -fr /tmp/* && \
       rm -rf /var/list/apt/* && \
       rm -r /var/lib/apt/lists/* && \

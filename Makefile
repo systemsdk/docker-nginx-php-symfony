@@ -58,6 +58,9 @@ info:
 	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"
 
+logs-supervisord:
+	@docker logs supervisord
+
 drop-migrate:
 	@make exec cmd="php bin/console doctrine:schema:drop --full-database --force"
 	@make exec cmd="php bin/console doctrine:schema:drop --full-database --force --env=test"

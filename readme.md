@@ -18,6 +18,7 @@ Note: OS recommendation - Linux Ubuntu based.
 2. PHP 7.3 fpm
 3. MySQL 8
 4. Symfony 4.2
+5. RabbitMQ 3
 
 ## Setting up DEV environment
 1. Set another APP_SECRET for application in .env.prod file.
@@ -83,6 +84,8 @@ Note: OS recommendation - Linux Ubuntu based.
     
     make info
     
+    logs-supervisord
+    
     make drop-migrate
     
     make migrate-prod
@@ -107,10 +110,14 @@ Note: OS recommendation - Linux Ubuntu based.
 * [browser-kit](https://github.com/symfony/browser-kit)
 * [css-selector](https://github.com/symfony/css-selector)
 * [security-checker](https://github.com/sensiolabs/security-checker)
+* [messenger](https://symfony.com/doc/current/messenger.html)
+* [serializer-pack](https://packagist.org/packages/symfony/serializer-pack)
+* [amqp](https://packagist.org/packages/symfony/amqp-pack)
 
 ## General guidelines
 * **[General](docs/general.md)**
 * [Configuring IDE JetBrains PhpStorm](docs/phpstorm.md)
+* [Using messenger](docs/messenger.md)
 
 ## Working on your project
 1. For new feature development, fork `develop` branch into a new branch with one of the two patterns:
