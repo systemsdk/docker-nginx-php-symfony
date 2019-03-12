@@ -84,7 +84,7 @@ Note: OS recommendation - Linux Ubuntu based.
     
     make info
     
-    logs-supervisord
+    make logs-supervisord
     
     make drop-migrate
     
