@@ -154,6 +154,9 @@
     "nikic/php-parser": {
         "version": "v4.2.1"
     },
+    "ocramius/package-versions": {
+        "version": "1.4.0"
+    },
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },
@@ -220,6 +223,9 @@
     "symfony/cache": {
         "version": "v4.2.3"
     },
+    "symfony/cache-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/config": {
         "version": "v4.2.3"
     },
@@ -275,6 +281,9 @@
     "symfony/event-dispatcher": {
         "version": "v4.2.3"
     },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/expression-language": {
         "version": "v4.2.3"
     },
@@ -318,6 +327,12 @@
             "src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "v4.3.2"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/http-foundation": {
         "version": "v4.2.3"
     },
@@ -350,6 +365,9 @@
         "files": [
             "config/packages/messenger.yaml"
         ]
+    },
+    "symfony/mime": {
+        "version": "v4.3.2"
     },
     "symfony/monolog-bridge": {
         "version": "v4.2.3"
@@ -404,6 +422,9 @@
     },
     "symfony/polyfill-php72": {
         "version": "v1.10.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.11.0"
     },
     "symfony/process": {
         "version": "v4.2.3"
@@ -462,6 +483,9 @@
     "symfony/serializer-pack": {
         "version": "v1.0.2"
     },
+    "symfony/service-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/stopwatch": {
         "version": "v4.2.3"
     },
@@ -497,6 +521,9 @@
             "config/packages/translation.yaml",
             "translations/.gitignore"
         ]
+    },
+    "symfony/translation-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/twig-bridge": {
         "version": "v4.2.3"

@@ -17,7 +17,7 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.15
 2. PHP 7.3 fpm
 3. MySQL 8
-4. Symfony 4.2
+4. Symfony 4.3
 5. RabbitMQ 3
 
 ## Setting up DEV environment
@@ -100,7 +100,7 @@ Note: OS recommendation - Linux Ubuntu based.
     Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Symfony 4.2](https://symfony.com)
+* [Symfony 4.3](https://symfony.com)
 * [doctrine-migrations-bundle](https://github.com/doctrine/DoctrineMigrationsBundle)
 * [doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle)
 * [command-scheduler-bundle](https://github.com/j-guyon/CommandSchedulerBundle)
