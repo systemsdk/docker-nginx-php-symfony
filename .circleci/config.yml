@@ -19,12 +19,16 @@ jobs:
           command: |
             make wait-for-db
             make drop-migrate
-            make fixtures
 
       - run:
           name: Run unit/functional tests
           command: |
             make phpunit
+
+      - run:
+          name: Report code coverage
+          command: |
+            make report-code-coverage
 
       - store_artifacts:
           path: reports

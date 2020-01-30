@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Feature;
+namespace App\Tests\Functional;
 
-use App\Tests\FeatureTestCase;
+use App\Tests\FunctionalTestCase;
 
-class ExampleTest extends FeatureTestCase
+class ExampleTest extends FunctionalTestCase
 {
     /**
      * A basic test example.

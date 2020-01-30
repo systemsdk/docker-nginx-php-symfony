@@ -1,12 +1,12 @@
 /.idea
 reports/*
 !reports/.gitkeep
-.phpunit.result.cache
 
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
@@ -14,9 +14,6 @@ reports/*
 
 ###> symfony/phpunit-bridge ###
 .phpunit
+.phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-
-###> symfony/web-server-bundle ###
-/.web-server-pid
-###< symfony/web-server-bundle ###

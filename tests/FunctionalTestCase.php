@@ -5,7 +5,7 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseTestCase;
 
-abstract class FeatureTestCase extends BaseTestCase
+abstract class FunctionalTestCase extends BaseTestCase
 {
     use CreatesApplication;
 }

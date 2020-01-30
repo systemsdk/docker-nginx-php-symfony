@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 # set main params
 ARG BUILD_ARGUMENT_DEBUG_ENABLED=false
@@ -53,8 +53,8 @@ RUN chown -R www-data:www-data $APP_HOME
 COPY ./docker/$BUILD_ARGUMENT_ENV/www.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/$BUILD_ARGUMENT_ENV/php.ini /usr/local/etc/php/php.ini
 
-# install Xdebug in case development environment
-COPY ./docker/other/do_we_need_xdebug.sh /tmp/
+# install Xdebug in case dev/test environment
+COPY ./docker/general/do_we_need_xdebug.sh /tmp/
 COPY ./docker/dev/xdebug.ini /tmp/
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
@@ -63,8 +63,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ 
 
 # add supervisor
 RUN mkdir -p /var/log/supervisor
-COPY --chown=root:root ./docker/other/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY --chown=root:root ./docker/other/cron /var/spool/cron/crontabs/root
+COPY --chown=root:root ./docker/general/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY --chown=root:root ./docker/general/cron /var/spool/cron/crontabs/root
 RUN chmod 0600 /var/spool/cron/crontabs/root
 
 # set working directory

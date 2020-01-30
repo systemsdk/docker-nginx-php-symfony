@@ -21,3 +21,11 @@ monolog:
             handler: deprecation
             max_level: info
             channels: ["php"]
+        buffered:
+            type: buffer
+            handler: easylog
+            channels: ['!event']
+            level: debug
+        easylog:
+            type: service
+            id: EasyCorp\EasyLog\EasyLogHandler
