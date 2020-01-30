@@ -38,7 +38,7 @@ class WaitDatabaseCommand extends Command
         parent::__construct('db:wait');
         $this->em = $em;
         $this->setDescription('Waits for database availability.')
-             ->setHelp('This command allows you to wait for database availability.');
+            ->setHelp('This command allows you to wait for database availability.');
     }
 
     /**
