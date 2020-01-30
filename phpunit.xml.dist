@@ -42,7 +42,6 @@
                 <directory>./src/Command</directory>
                 <directory>./src/DataFixtures</directory>
                 <directory>./src/Migrations</directory>
-                <file>./src/Kernel.php</file>
             </exclude>
         </whitelist>
     </filter>
