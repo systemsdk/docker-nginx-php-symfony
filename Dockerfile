@@ -32,16 +32,18 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       librabbitmq-dev \
     && pecl install amqp \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+    && docker-php-ext-configure intl \
     && docker-php-ext-install \
       pdo_mysql \
       sockets \
       intl \
+      opcache \
       zip \
-    && docker-php-ext-enable amqp && \
-      rm -fr /tmp/* && \
-      rm -rf /var/list/apt/* && \
-      rm -r /var/lib/apt/lists/* && \
-      apt-get clean
+    && docker-php-ext-enable amqp \
+    && rm -rf /tmp/* \
+    && rm -rf /var/list/apt/* \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # create document root
 RUN mkdir -p $APP_HOME/public
@@ -59,7 +61,9 @@ COPY ./docker/dev/xdebug.ini /tmp/
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
 # install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN chmod +x /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # add supervisor
 RUN mkdir -p /var/log/supervisor
@@ -79,8 +83,8 @@ USER www-data
 COPY --chown=www-data:www-data . $APP_HOME/
 
 # install all PHP dependencies
-RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then composer install --optimize-autoloader --no-interaction --no-progress; \
-    else export APP_ENV=$BUILD_ARGUMENT_ENV && composer install --optimize-autoloader --no-interaction --no-progress --no-dev; \
+RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-interaction --no-progress; \
+    else export APP_ENV=$BUILD_ARGUMENT_ENV && COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-interaction --no-progress --no-dev; \
     fi
 
 # create cached config file .env.local.php in case prod environment

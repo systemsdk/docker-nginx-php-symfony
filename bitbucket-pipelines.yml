@@ -14,5 +14,8 @@ pipelines:
           - docker ps -a
           - make wait-for-db
           - make drop-migrate
+          - make messenger-setup-transports
           - make phpunit
+          - make ecs
+          - make phpcs
           - make stop-test

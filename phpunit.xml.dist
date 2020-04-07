@@ -2,11 +2,12 @@
 
 <!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.4/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.0/phpunit.xsd"
          backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="config/bootstrap.php"
          colors="true"
+         testdox="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
@@ -42,6 +43,7 @@
                 <directory>./src/Command</directory>
                 <directory>./src/DataFixtures</directory>
                 <directory>./src/Migrations</directory>
+                <file>./src/Kernel.php</file>
             </exclude>
         </whitelist>
     </filter>

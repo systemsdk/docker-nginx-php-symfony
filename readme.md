@@ -59,6 +59,7 @@ make composer-install
 6.Make sure that you have installed migrations:
 ```bash
 make migrate
+make messenger-setup-transports
 ```
 
 7.In order to use this application, please open in your browser next url: [http://localhost/api/doc](http://localhost/api/doc).
@@ -129,6 +130,8 @@ make migrate-prod
 
 make fixtures
 
+make messenger-setup-transports
+
 make phpunit
 make report-code-coverage
 
@@ -153,8 +156,9 @@ Notes: Please see more commands in Makefile
 * [security-checker](https://github.com/sensiolabs/security-checker)
 * [messenger](https://symfony.com/doc/current/messenger.html)
 * [serializer-pack](https://packagist.org/packages/symfony/serializer-pack)
-* [amqp](https://packagist.org/packages/symfony/amqp-pack)
 * [composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
+* [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
+* [symfony/requirements-checker](https://github.com/symfony/requirements-checker)
 * [security-advisories](https://github.com/Roave/SecurityAdvisories)
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)

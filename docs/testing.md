@@ -9,7 +9,7 @@ This environment contains next types of tests:
 
 All tests relies to [PHPUnit](https://phpunit.de/) library.
 
-Please note that this environment does not use simple phpunit as does Symfony by default, that's why symfony container shell `./bin/phpunit` command is not exists.
+Please note that this environment does not use simple phpunit as does Symfony by default, that's why symfony container shell `./bin/phpunit` command is not exist.
 
 ### Commands to run tests
 You can run tests using following local shell command(s):

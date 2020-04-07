@@ -15,10 +15,11 @@ jobs:
             make start-test
 
       - run:
-          name: Wait for DB container is running and initialize DB
+          name: Wait for DB container is running and initialize DB & messenger component
           command: |
             make wait-for-db
             make drop-migrate
+            make messenger-setup-transports
 
       - run:
           name: Run unit/functional tests
@@ -29,6 +30,12 @@ jobs:
           name: Report code coverage
           command: |
             make report-code-coverage
+
+      - run:
+          name: Check coding standard & CodeSniffer
+          command: |
+            make ecs
+            make phpcs
 
       - store_artifacts:
           path: reports

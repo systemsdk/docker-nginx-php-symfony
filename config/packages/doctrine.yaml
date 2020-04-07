@@ -8,6 +8,9 @@ doctrine:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
 
+        # https://symfony.com/doc/current/messenger.html#doctrine-transport
+        schema_filter: '~^(?!messenger_messages)~'
+
         url: '%env(resolve:DATABASE_URL)%'
     orm:
         auto_generate_proxy_classes: true

@@ -1,9 +1,19 @@
 dir=${CURDIR}
 project=-p symfony
 service=symfony:latest
+openssl_bin:=$(shell which openssl)
 interactive:=$(shell [ -t 0 ] && echo 1)
 ifneq ($(interactive),1)
 	optionT=-T
+endif
+
+ifndef APP_ENV
+	# Determine which .env file to use
+	ifneq ("$(wildcard .env.local)","")
+		include .env.local
+	else
+		include .env
+	endif
 endif
 
 start:
@@ -62,13 +72,13 @@ wait-for-db:
 	@make exec cmd="php bin/console db:wait"
 
 composer-install-prod:
-	@make exec cmd="composer install --optimize-autoloader --no-dev"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-dev"
 
 composer-install:
-	@make exec cmd="composer install --optimize-autoloader"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader"
 
 composer-update:
-	@make exec cmd="composer update"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
 info:
 	@make exec cmd="bin/console --version"
@@ -95,17 +105,20 @@ drop-migrate:
 	@make migrate
 
 migrate-prod:
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
 
 migrate:
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --env=test"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing --env=test"
 
 fixtures:
 	@make exec cmd="php bin/console doctrine:fixtures:load --env=test"
 
+messenger-setup-transports:
+	@make exec cmd="php bin/console messenger:setup-transports"
+
 phpunit:
-	@make exec cmd="./vendor/bin/phpunit -c phpunit.xml.dist --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
+	@make exec-bash cmd="rm -rf ./var/cache/test* && bin/console cache:warmup --env=test && ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
 
 ###> php-coveralls ###
 report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_REPO_TOKEN should be set on CI side.
