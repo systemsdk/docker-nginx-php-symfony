@@ -1,10 +1,13 @@
 monolog:
     handlers:
         main:
-            type: stream
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            type: buffer
+            handler: easylog
+            channels: ['!event']
             level: debug
-            channels: ["!event"]
+        easylog:
+            type: service
+            id: EasyCorp\EasyLog\EasyLogHandler
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         firephp:
@@ -17,11 +20,4 @@ monolog:
             type: console
             process_psr_3_messages: false
             channels: ["!event", "!doctrine", "!console"]
-        buffered:
-            type: buffer
-            handler: easylog
-            channels: ['!event']
-            level: debug
-        easylog:
-            type: service
-            id: EasyCorp\EasyLog\EasyLogHandler
+
