@@ -79,6 +79,6 @@ After above command you will be inside symfony container and for display list of
 ```
 #### Custom commands in symfony container shell
 ```bash
-./bin/console db:wait                    # Waits for database availability (2 mins max)
+./bin/console db:wait                    # Waits for database availability (1 mins max)
 ./bin/console messenger:setup-transports # Initialize transports for Messenger component
 ```
