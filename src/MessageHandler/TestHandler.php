@@ -38,7 +38,9 @@ class TestHandler implements MessageSubscriberInterface
         $this->handleMessage($message);
     }
 
-    /** @inheritDoc */
+    /**
+     * @inheritDoc
+     */
     public static function getHandledMessages(): iterable
     {
         // handle this message on __invoke

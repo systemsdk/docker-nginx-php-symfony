@@ -6,13 +6,16 @@ interactive:=$(shell [ -t 0 ] && echo 1)
 ifneq ($(interactive),1)
 	optionT=-T
 endif
+ifeq ($(GITLAB_CI),1)
+	# Determine additional params for phpunit in order to generate coverage badge on GitLabCI side
+	phpunitOptions=--coverage-text --colors=never
+endif
 
 ifndef APP_ENV
-	# Determine which .env file to use
+	include .env
+	# Determine if .env.local file exist
 	ifneq ("$(wildcard .env.local)","")
 		include .env.local
-	else
-		include .env
 	endif
 endif
 
@@ -21,6 +24,9 @@ start:
 
 start-test:
 	@docker-compose -f docker-compose-test-ci.yml $(project) up -d
+
+start-staging:
+	@docker-compose -f docker-compose-staging.yml $(project) up -d
 
 start-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) up -d
@@ -31,15 +37,22 @@ stop:
 stop-test:
 	@docker-compose -f docker-compose-test-ci.yml $(project) down
 
+stop-staging:
+	@docker-compose -f docker-compose-staging.yml $(project) down
+
 stop-prod:
 	@docker-compose -f docker-compose-prod.yml $(project) down
 
 restart: stop start
 restart-test: stop-test start-test
+restart-staging: stop-staging start-staging
 restart-prod: stop-prod start-prod
 
 env-prod:
 	@make exec cmd="composer dump-env prod"
+
+env-staging:
+	@make exec cmd="composer dump-env staging"
 
 ssh:
 	@docker-compose $(project) exec $(optionT) symfony bash
@@ -71,7 +84,7 @@ report-clean:
 wait-for-db:
 	@make exec cmd="php bin/console db:wait"
 
-composer-install-prod:
+composer-install-no-dev:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-dev"
 
 composer-install:
@@ -104,7 +117,7 @@ drop-migrate:
 	@make exec cmd="php bin/console doctrine:schema:drop --full-database --force --env=test"
 	@make migrate
 
-migrate-prod:
+migrate-no-test:
 	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
 
 migrate:
@@ -118,7 +131,7 @@ messenger-setup-transports:
 	@make exec cmd="php bin/console messenger:setup-transports"
 
 phpunit:
-	@make exec-bash cmd="rm -rf ./var/cache/test* && bin/console cache:warmup --env=test && ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-html reports/coverage --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
+	@make exec-bash cmd="rm -rf ./var/cache/test* && bin/console cache:warmup --env=test && ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-html reports/coverage $(phpunitOptions) --coverage-clover reports/clover.xml --log-junit reports/junit.xml"
 
 ###> php-coveralls ###
 report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_REPO_TOKEN should be set on CI side.

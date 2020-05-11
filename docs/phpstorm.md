@@ -4,10 +4,13 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
 ## Configuring PhpStorm
 ### General
 * Go to `Settings -> Plugins` and install next plugins:
-    - Symfony
+    - .env files support
+    - .ignore
+    - Makefile support
     - Php Annotations
+    - Php Inspections ​(EA Extended)
     - Php Toolbox
-    - Php Inspections ​(EA Extended)​
+    - Symfony support​ 
 * Go to `Settings -> Languages & Frameworks -> Php -> Symfony` and check `Enable plugin for this project` and set Web Directory value as `public`.
 * Go to `Settings -> Languages & Frameworks -> Php -> Composer` and set path to composer.json, check other settings:
 

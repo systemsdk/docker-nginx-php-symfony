@@ -8,16 +8,20 @@ Next commands available for this environment:
 ```bash
 make start                      # Start dev environment
 make start-test                 # Start test or continuous integration environment
+make start-staging              # Start staging environment
 make start-prod                 # Start prod environment
 
 make stop                       # Stop dev environment
 make stop-test                  # Stop test or continuous integration environment
+make stop-staging               # Stop staging environment
 make stop-prod                  # Stop prod environment
 
 make restart                    # Stop and start dev environment
 make restart-test               # Stop and start test or continuous integration environment
+make restart-staging            # Stop and start staging environment
 make restart-prod               # Stop and start prod environment
 
+make env-staging                # Create cached config file .env.local.php (usually for staging environment)
 make env-prod                   # Create cached config file .env.local.php (usually for prod environment)
 
 make ssh                        # Enter symfony container shell
@@ -34,7 +38,7 @@ make report-clean               # Delete all reports in /reports/ folder
 
 make wait-for-db                # Checking MySQL database availability, currently using for CircleCI (see /.circleci folder)
 
-make composer-install-prod      # Installing composer dependencies for prod environment (without dev tools)
+make composer-install-no-dev    # Installing composer dependencies for prod environment (without dev tools)
 make composer-install           # Installing composer dependencies for dev environment
 make composer-update            # Update composer dependencies
 
@@ -48,7 +52,7 @@ make logs-rabbitmq              # Display logs for rabbitmq container. Use ctrl+
 
 make drop-migrate               # Drop databases (main and for tests) and run all migrations
 make migrate                    # Run all migrations for databases (main and for tests)
-make migrate-prod               # Run all migrations for main database
+make migrate-no-test            # Run all migrations for main database
 
 make fixtures                   # Run all fixtures for test database without --append option (tables will be dropped and recreated)
 

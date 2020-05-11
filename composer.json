@@ -78,7 +78,7 @@
 		"ergebnis/composer-normalize": "^2.3",
 		"roave/security-advisories": "dev-master",
 		"symfony/debug-pack": "*",
-		"symfony/maker-bundle": "^1.15",
+		"symfony/maker-bundle": "^1.17",
 		"symfony/requirements-checker": "^1.1"
 	},
 	"config": {

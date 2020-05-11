@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+
+    nginx:
+      image: nginx:latest
+      build:
+        context: ./docker/
+        args:
+          - "BUILD_ARGUMENT_ENV=staging"
+        dockerfile: ./nginx/Dockerfile
+      container_name: nginx
+      restart: always
+      ports:
+        - 80:80
+        - 443:443
+      volumes:
+        - .:/var/www/html:ro
+      depends_on:
+        - symfony
+      links:
+        - symfony
+
+    symfony: &symfony-template
+      image: symfony:latest
+      build:
+        context: .
+        args:
+          - "BUILD_ARGUMENT_ENV=staging"
+          - "BUILD_ARGUMENT_DEBUG_ENABLED=false"
+        dockerfile: ./Dockerfile
+      container_name: symfony
+      expose:
+        - 9000
+      depends_on:
+        - mysql
+        - rabbitmq
+      links:
+        - mysql
+        - rabbitmq
+
+    ### Cron tasks, RabbitMQ consumers
+    supervisord:
+      <<: *symfony-template
+      container_name: supervisord
+      user: root
+      expose: []
+      command: ["/usr/bin/supervisord"]
+
+    mysql:
+      image: mysql:8.0
+      container_name: mysql
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        - MYSQL_ROOT_PASSWORD=secret
+        - MYSQL_DATABASE=symfony
+      volumes:
+        - ./var/mysql-data:/var/lib/mysql
+
+    rabbitmq:
+      image: rabbitmq:3-management-alpine
+      build:
+        context: ./docker/rabbitmq/
+        dockerfile: ./Dockerfile
+      container_name: rabbitmq
+      environment:
+        - RABBITMQ_ERLANG_COOKIE=7ead507151fc4461b9f45c1161384a04
+        - RABBITMQ_DEFAULT_USER=guest
+        - RABBITMQ_DEFAULT_PASS=guest
+        - RABBITMQ_DEFAULT_VHOST=/
+      ports:
+        - 15672:15672
+      volumes:
+        - ./var/rabbitmq:/var/lib/rabbitmq

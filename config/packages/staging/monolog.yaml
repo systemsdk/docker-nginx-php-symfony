@@ -1,0 +1,29 @@
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            handler: buffered
+            excluded_http_codes: [404, 405]
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine"]
+        deprecation:
+            type: stream
+            path: "php://stdout"
+            # Use below if you're not running application in container
+            #path: '%kernel.logs_dir%/%kernel.environment%.deprecations.log'
+        deprecation_filter:
+            type: filter
+            handler: deprecation
+            max_level: info
+            channels: ["php"]
+        buffered:
+            type: buffer
+            handler: easylog
+            channels: ['!event']
+            level: debug
+        easylog:
+            type: service
+            id: EasyCorp\EasyLog\EasyLogHandler

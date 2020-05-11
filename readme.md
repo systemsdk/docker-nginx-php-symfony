@@ -19,17 +19,57 @@ Note: OS recommendation - Linux Ubuntu based.
 1. Nginx 1.17
 2. PHP 7.4 fpm
 3. MySQL 8
-4. Symfony 4.4
+4. Symfony 4 LTS
 5. RabbitMQ 3
+
+## Setting up PROD environment
+1.Clone this repository from GitHub.
+
+2.Edit docker-compose-prod.yml and set necessary user/password for MySQL and RabbitMQ.
+
+Note: Delete var/mysql-data folder if it is exist.
+
+3.Edit env.prod and set necessary user/password for MySQL and RabbitMQ.
+
+4.Build, start and install the docker images from your terminal:
+```bash
+docker-compose -f docker-compose-prod.yml build
+make start-prod
+```
+
+5.Make sure that you have installed migrations / created roles and groups / messenger transports:
+```bash
+make migrate-no-test
+make messenger-setup-transports
+```
+
+## Setting up STAGING environment
+1.Clone this repository from GitHub.
+
+Note: Delete var/mysql-data folder if it is exist.
+
+2.Build, start and install the docker images from your terminal:
+```bash
+docker-compose -f docker-compose-staging.yml build
+make start-staging
+```
+
+3.Make sure that you have installed migrations / created roles and groups / messenger transports:
+```bash
+make migrate-no-test
+make messenger-setup-transports
+```
 
 ## Setting up DEV environment
 1.Clone this repository from GitHub.
 
-2.Set another APP_SECRET for application in .env.prod file.
+2.Set another APP_SECRET for application in .env.prod and .env.staging files.
 
 Note 1: You can get unique secret key for example [here](http://nux.net/secret).
 
 Note 2: Do not use .env.local.php on dev and test environment (delete it if exist).
+
+Note 3: Delete var/mysql-data folder if it is exist.
 
 3.Add domain to local 'hosts' file:
 ```bash
@@ -56,7 +96,7 @@ make start
 make composer-install
 ```
 
-6.Make sure that you have installed migrations:
+6.Make sure that you have installed migrations / messenger transports:
 ```bash
 make migrate
 make messenger-setup-transports
@@ -69,7 +109,7 @@ After application will start (`make start`) and in order to get shell access ins
 ```bash
 make ssh
 ```
-Note 1: Please use next make commands in order to enter in other containers: `make ssh-nginx`, `make ssh-supervisord`, `make ssh-mysql`.
+Note 1: Please use next make commands in order to enter in other containers: `make ssh-nginx`, `make ssh-supervisord`, `make ssh-mysql`, `make ssh-rabbitmq`.
 
 Note 2: Please use `exit` command in order to return from container's shell to local shell.
 
@@ -80,7 +120,9 @@ make stop
 docker-compose build
 make start
 ```
-Note: Please use next command if you need to build prod environment `docker-compose -f docker-compose-prod.yml build` instead `docker-compose build`.
+Note 1: Please use next command if you need to build staging environment `docker-compose -f docker-compose-staging.yml build` instead `docker-compose build`.
+
+Note 2: Please use next command if you need to build prod environment `docker-compose -f docker-compose-prod.yml build` instead `docker-compose build`.
 
 ## Start and stop environment
 Please use next make commands in order to start and stop environment:
@@ -88,22 +130,28 @@ Please use next make commands in order to start and stop environment:
 make start
 make stop
 ```
-Note: For prod environment need to be used next make commands: `make start-prod`, `make stop-prod`.
+Note 1: For staging environment need to be used next make commands: `make start-staging`, `make stop-staging`.
+
+Note 2: For prod environment need to be used next make commands: `make start-prod`, `make stop-prod`.
 
 ## Additional main command available
 ```bash
 make start
 make start-test
+make start-staging
 make start-prod
 
 make stop
 make stop-test
+make stop-staging
 make stop-prod
 
 make restart
 make restart-test
+make restart-staging
 make restart-prod
 
+make env-staging
 make env-prod
 
 make ssh
@@ -112,7 +160,7 @@ make ssh-supervisord
 make ssh-mysql
 make ssh-rabbitmq
 
-make composer-install-prod
+make composer-install-no-dev
 make composer-install
 make composer-update
 
@@ -126,7 +174,7 @@ make logs-rabbitmq
 
 make drop-migrate
 make migrate
-make migrate-prod
+make migrate-no-test
 
 make fixtures
 
@@ -145,7 +193,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Symfony 4.4](https://symfony.com)
+* [Symfony 4](https://symfony.com)
 * [doctrine-migrations-bundle](https://github.com/doctrine/DoctrineMigrationsBundle)
 * [doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle)
 * [command-scheduler-bundle](https://github.com/j-guyon/CommandSchedulerBundle)

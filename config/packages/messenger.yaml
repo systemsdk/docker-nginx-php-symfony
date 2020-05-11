@@ -33,6 +33,15 @@ framework:
                         name: high
                     queues:
                         messages_high: ~
+                # default configuration
+                retry_strategy:
+                    max_retries: 3
+                    # milliseconds delay
+                    delay: 5000
+                    # causes the delay to be higher before each retry
+                    # e.g. 1 second delay, 2 seconds, 4 seconds
+                    multiplier: 2
+                    max_delay: 0
             async_priority_low:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 options:
@@ -40,6 +49,15 @@ framework:
                         name: low
                     queues:
                         messages_low: ~
+                # default configuration
+                retry_strategy:
+                    max_retries: 3
+                    # milliseconds delay
+                    delay: 5000
+                    # causes the delay to be higher before each retry
+                    # e.g. 1 second delay, 2 seconds, 4 seconds
+                    multiplier: 2
+                    max_delay: 0
 
             # Uncomment the following line to enable a transport named "amqp"
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
