@@ -37,7 +37,7 @@ docker-compose -f docker-compose-prod.yml build
 make start-prod
 ```
 
-5.Make sure that you have installed migrations / created roles and groups / messenger transports:
+5.Make sure that you have installed migrations / messenger transports:
 ```bash
 make migrate-no-test
 make messenger-setup-transports
@@ -54,7 +54,7 @@ docker-compose -f docker-compose-staging.yml build
 make start-staging
 ```
 
-3.Make sure that you have installed migrations / created roles and groups / messenger transports:
+3.Make sure that you have installed migrations / messenger transports:
 ```bash
 make migrate-no-test
 make messenger-setup-transports
