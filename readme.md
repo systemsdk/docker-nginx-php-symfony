@@ -102,7 +102,7 @@ make migrate
 make messenger-setup-transports
 ```
 
-7.In order to use this application, please open in your browser next url: [http://localhost/api/doc](http://localhost/api/doc).
+7.In order to use this application, please open in your browser next url: [http://localhost](http://localhost).
 
 ## Getting shell to container
 After application will start (`make start`) and in order to get shell access inside symfony container you can run following command:
