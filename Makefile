@@ -1,6 +1,15 @@
 dir=${CURDIR}
-project=-p symfony
-service=symfony:latest
+
+ifndef APP_ENV
+	include .env
+	# Determine if .env.local file exist
+	ifneq ("$(wildcard .env.local)","")
+		include .env.local
+	endif
+endif
+
+project=-p ${COMPOSE_PROJECT_NAME}
+service=${COMPOSE_PROJECT_NAME}:latest
 openssl_bin:=$(shell which openssl)
 interactive:=$(shell [ -t 0 ] && echo 1)
 ifneq ($(interactive),1)
@@ -11,13 +20,17 @@ ifeq ($(GITLAB_CI),1)
 	phpunitOptions=--coverage-text --colors=never
 endif
 
-ifndef APP_ENV
-	include .env
-	# Determine if .env.local file exist
-	ifneq ("$(wildcard .env.local)","")
-		include .env.local
-	endif
-endif
+build:
+	@docker-compose -f docker-compose.yml build
+
+build-test:
+	@docker-compose -f docker-compose-test-ci.yml build
+
+build-staging:
+	@docker-compose -f docker-compose-staging.yml build
+
+build-prod:
+	@docker-compose -f docker-compose-prod.yml build
 
 start:
 	@docker-compose -f docker-compose.yml $(project) up -d
@@ -98,19 +111,19 @@ info:
 	@make exec cmd="php --version"
 
 logs:
-	@docker logs -f symfony
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_symfony
 
 logs-nginx:
-	@docker logs -f nginx
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_nginx
 
 logs-supervisord:
-	@docker logs -f supervisord
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_supervisord
 
 logs-mysql:
-	@docker logs -f mysql
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_mysql
 
 logs-rabbitmq:
-	@docker logs -f rabbitmq
+	@docker logs -f ${COMPOSE_PROJECT_NAME}_rabbitmq
 
 drop-migrate:
 	@make exec cmd="php bin/console doctrine:schema:drop --full-database --force"

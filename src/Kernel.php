@@ -1,4 +1,8 @@
 <?php
+declare(strict_types = 1);
+/**
+ * /src/Kernel.php
+ */
 
 namespace App;
 
@@ -8,6 +12,7 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use Throwable;
 
 class Kernel extends BaseKernel
 {
@@ -15,8 +20,13 @@ class Kernel extends BaseKernel
 
     private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+    /**
+     * {@inheritdoc}
+     */
     public function registerBundles(): iterable
     {
+        /** @noinspection PhpIncludeInspection */
+        /** @noinspection UsingInclusionReturnValueInspection */
         $contents = require $this->getProjectDir() . '/config/bundles.php';
         foreach ($contents as $class => $envs) {
             if ($envs[$this->environment] ?? $envs['all'] ?? false) {
@@ -25,11 +35,20 @@ class Kernel extends BaseKernel
         }
     }
 
+    /** @noinspection PhpMissingParentCallCommonInspection */
+    /**
+     * {@inheritdoc}
+     */
     public function getProjectDir(): string
     {
         return \dirname(__DIR__);
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @throws Throwable
+     */
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
         $container->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
@@ -43,6 +62,11 @@ class Kernel extends BaseKernel
         $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @throws Throwable
+     */
     protected function configureRoutes(RouteCollectionBuilder $routes): void
     {
         $confDir = $this->getProjectDir() . '/config';

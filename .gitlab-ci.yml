@@ -23,7 +23,7 @@ stages:
 build:
   stage: build
   script:
-    - docker-compose -f docker-compose-test-ci.yml build
+    - make build-test
     - make start-test
     - docker ps -a
     - make wait-for-db
@@ -46,18 +46,19 @@ build:
 push_staging_images:
   stage: deploy
   script:
-    - docker-compose -f docker-compose-staging.yml build
+    - make build-staging
     # TODO: set necessary image name in docker-compose-staging.yml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     #- docker-compose -f docker-compose-staging.yml push
   only:
     - master
     - develop
+    - /^release.*$/
 
 push_prod_images:
   stage: deploy
   script:
-    - docker-compose -f docker-compose-prod.yml build
+    - make build-prod
     # TODO: set necessary image name in docker-compose-prod.yml according to your registry and edit lines bellow
     #- docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     #- docker-compose -f docker-compose-prod.yml push

@@ -10,7 +10,7 @@ jobs:
       - checkout
 
       - run:
-          name: Start container and verify it's working
+          name: Start containers and verify it's working
           command: |
             make start-test
 

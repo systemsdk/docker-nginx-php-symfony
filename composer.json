@@ -31,7 +31,7 @@
 		"ext-mbstring": "*",
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
-		"doctrine/doctrine-migrations-bundle": "^2.1",
+		"doctrine/doctrine-migrations-bundle": "^2.2",
 		"easycorp/easy-log-handler": "1.0.*",
 		"jmose/command-scheduler-bundle": "^2.2",
 		"sensio/framework-extra-bundle": "^5.5",
@@ -41,7 +41,7 @@
 		"symfony/console": "4.4.*",
 		"symfony/dotenv": "4.4.*",
 		"symfony/expression-language": "4.4.*",
-		"symfony/flex": "^1.6",
+		"symfony/flex": "^1.9",
 		"symfony/form": "4.4.*",
 		"symfony/framework-bundle": "4.4.*",
 		"symfony/http-client": "4.4.*",
@@ -75,10 +75,10 @@
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
 		"doctrine/doctrine-fixtures-bundle": "^3.3",
-		"ergebnis/composer-normalize": "^2.3",
+		"ergebnis/composer-normalize": "^2.6",
 		"roave/security-advisories": "dev-master",
 		"symfony/debug-pack": "*",
-		"symfony/maker-bundle": "^1.17",
+		"symfony/maker-bundle": "^1.20",
 		"symfony/requirements-checker": "^1.1"
 	},
 	"config": {

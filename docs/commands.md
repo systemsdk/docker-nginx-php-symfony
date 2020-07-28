@@ -6,6 +6,11 @@ This environment comes with "Makefile" and it allow to simplify using some funct
 In order to use command listed bellow just use next syntax in your local shell: `make {command name}`.
 Next commands available for this environment:
 ```bash
+make build                      # Build dev environment
+make build-test                 # Build test or continuous integration environment
+make build-staging              # Build staging environment
+make build-prod                 # Build prod environment
+
 make start                      # Start dev environment
 make start-test                 # Start test or continuous integration environment
 make start-staging              # Start staging environment
