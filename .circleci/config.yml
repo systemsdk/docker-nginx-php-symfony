@@ -37,6 +37,26 @@ jobs:
             make ecs
             make phpcs
 
+      - run:
+          name: Run PHP copy/paste detector
+          command: |
+            make phpcpd
+
+      - run:
+          name: Run PHP mess detector
+          command: |
+            make phpmd
+
+      - run:
+          name: Run PHPStan static analysis tool
+          command: |
+            make phpstan
+
+      - run:
+          name: Run Phpinsights PHP quality checks
+          command: |
+            make phpinsights
+
       - store_artifacts:
           path: reports
 

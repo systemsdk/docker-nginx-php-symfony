@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Tests\Unit;
 
@@ -9,10 +9,8 @@ class ExampleTest extends UnitTestCase
 {
     /**
      * A basic test example.
-     *
-     * @return void
      */
-    public function testBasicTest()
+    public function testBasicTest(): void
     {
         $this->assertTrue(true);
     }

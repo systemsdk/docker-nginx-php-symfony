@@ -31,11 +31,10 @@
 		"ext-mbstring": "*",
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
-		"doctrine/doctrine-migrations-bundle": "^2.2",
+		"doctrine/doctrine-migrations-bundle": "^3.0",
 		"easycorp/easy-log-handler": "1.0.*",
-		"jmose/command-scheduler-bundle": "^2.2",
-		"sensio/framework-extra-bundle": "^5.5",
-		"sensiolabs/security-checker": "^6.0",
+		"jmose/command-scheduler-bundle": "^3.0",
+		"sensio/framework-extra-bundle": "^5.6",
 		"symfony/asset": "4.4.*",
 		"symfony/config": "4.4.*",
 		"symfony/console": "4.4.*",
@@ -48,7 +47,7 @@
 		"symfony/intl": "4.4.*",
 		"symfony/mailer": "4.4.*",
 		"symfony/messenger": "4.4.*",
-		"symfony/monolog-bundle": "^3.5",
+		"symfony/monolog-bundle": "^3.6",
 		"symfony/orm-pack": "*",
 		"symfony/process": "4.4.*",
 		"symfony/routing": "4.4.*",
@@ -75,11 +74,14 @@
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
 		"doctrine/doctrine-fixtures-bundle": "^3.3",
-		"ergebnis/composer-normalize": "^2.6",
+		"ergebnis/composer-normalize": "^2.9",
 		"roave/security-advisories": "dev-master",
-		"symfony/debug-pack": "*",
-		"symfony/maker-bundle": "^1.20",
-		"symfony/requirements-checker": "^1.1"
+		"sensiolabs/security-checker": "^6.0",
+		"symfony/debug-bundle": "4.4.*",
+		"symfony/maker-bundle": "^1.22",
+		"symfony/requirements-checker": "^2.0",
+		"symfony/var-dumper": "4.4.*",
+		"symfony/web-profiler-bundle": "4.4.*"
 	},
 	"config": {
 		"platform": {
@@ -107,28 +109,33 @@
 	"autoload-dev": {
 		"psr-4": {
 			"App\\Tests\\": "tests/",
-			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src/",
+			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
 			"Symfony\\Component\\BrowserKit\\": "tools/01_phpunit/vendor/symfony/browser-kit",
-			"Symfony\\Bridge\\PhpUnit\\": "tools/01_phpunit/vendor/symfony/phpunit-bridge"
+			"Symfony\\Bridge\\PhpUnit\\": "tools/01_phpunit/vendor/symfony/phpunit-bridge",
+			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
+			"PhpCsFixer\\": "tools/03_ecs/vendor/friendsofphp/php-cs-fixer/src",
+			"SlevomatCodingStandard\\": "tools/03_ecs/vendor/slevomat/coding-standard/SlevomatCodingStandard",
+			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/coding-standard/src"
 		}
 	},
 	"prefer-stable": true,
 	"scripts": {
 		"post-install-cmd": [
 			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
+			"if test -d vendor/sensiolabs/security-checker; then ./vendor/bin/security-checker security:check; fi",
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi",
 			"@auto-scripts"
 		],
 		"post-update-cmd": [
 			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
+			"if test -d vendor/sensiolabs/security-checker; then ./vendor/bin/security-checker security:check; fi",
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
 			"@auto-scripts"
 		],
 		"auto-scripts": {
 			"cache:clear": "symfony-cmd",
 			"cache:warmup": "symfony-cmd",
-			"assets:install %PUBLIC_DIR%": "symfony-cmd",
-			"security-checker security:check": "script"
+			"assets:install %PUBLIC_DIR%": "symfony-cmd"
 		}
 	},
 	"support": {

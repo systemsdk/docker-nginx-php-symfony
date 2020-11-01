@@ -1,5 +1,8 @@
 <?php
 declare(strict_types = 1);
+/**
+ * /src/Message/Interfaces/MessageHighInterface.php
+ */
 
 namespace App\Message\Interfaces;
 

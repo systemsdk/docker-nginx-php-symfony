@@ -1,0 +1,6 @@
+parameters:
+    level: max
+    excludes_analyse:
+        - %currentWorkingDirectory%/src/Migrations/*
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false

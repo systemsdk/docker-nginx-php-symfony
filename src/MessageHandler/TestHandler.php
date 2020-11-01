@@ -1,11 +1,14 @@
 <?php
 declare(strict_types = 1);
+/**
+ * /src/MessageHandler/TestHandler.php
+ */
 
 namespace App\MessageHandler;
 
 use App\Message\TestMessage;
-use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
 use Throwable;
 
 /**
@@ -20,8 +23,6 @@ class TestHandler implements MessageSubscriberInterface
 
     /**
      * Constructor
-     *
-     * @param LoggerInterface $logger
      */
     public function __construct(LoggerInterface $logger)
     {
@@ -29,8 +30,6 @@ class TestHandler implements MessageSubscriberInterface
     }
 
     /**
-     * @param TestMessage $message
-     *
      * @throws Throwable
      */
     public function __invoke(TestMessage $message): void
@@ -39,7 +38,7 @@ class TestHandler implements MessageSubscriberInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public static function getHandledMessages(): iterable
     {
@@ -52,9 +51,9 @@ class TestHandler implements MessageSubscriberInterface
     }
 
     /**
-     * @param TestMessage $message
-     *
      * @throws Throwable
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
     private function handleMessage(TestMessage $message): void
     {
