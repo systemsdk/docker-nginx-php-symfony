@@ -1,5 +1,7 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
+
 /** @noinspection PhpUndefinedNamespaceInspection */
 /** @noinspection PhpUndefinedClassInspection */
 
@@ -64,6 +66,7 @@ return [
         SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff::class,
         SlevomatCodingStandard\Sniffs\TypeHints\ReturnTypeHintSniff::class,
+        SlevomatCodingStandard\Sniffs\ControlStructures\DisallowEmptySniff::class,
 
         PHP_CodeSniffer\Standards\Generic\Sniffs\Commenting\TodoSniff::class,
     ],
@@ -105,7 +108,7 @@ return [
             'sort_algorithm' => 'alpha', // possible values ['alpha', 'length', 'none']
         ],
         PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer::class => [
-            'space' => 'single', // possible values ['none', 'single']
+            'space' => 'none', // possible values ['none', 'single']
         ],
         SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff::class => [
             'exclude' => [],
@@ -114,9 +117,9 @@ return [
             'searchAnnotations' => true,
         ],
         SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff::class => [
-            'newlinesCountAfterDeclare' => 1,
-            'newlinesCountBetweenOpenTagAndDeclare' => 1,
-            'spacesCountAroundEqualsSign' => 1,
+            'newlinesCountAfterDeclare' => 2,
+            'newlinesCountBetweenOpenTagAndDeclare' => 2,
+            'spacesCountAroundEqualsSign' => 0,
         ],
     ],
 ];

@@ -2,7 +2,7 @@
 This document contains basic information and recommendation for development this application.
 
 ## General
-* Follow the [PSR-1 guide](https://www.php-fig.org/psr/psr-1/), [PSR-2 guide](https://www.php-fig.org/psr/psr-2/), [Coding Standards](http://symfony.com/doc/current/contributing/code/standards.html).
+* Follow the [PSR-1 guide](https://www.php-fig.org/psr/psr-1/), [PSR-12 guide](https://www.php-fig.org/psr/psr-12/), [Coding Standards](http://symfony.com/doc/current/contributing/code/standards.html).
 * Try to keep class names informative but not too long.
 * Follow Symfony conventions and [best practices](https://symfony.com/doc/current/best_practices/index.html).
 * Separate application logic from presentation and data-persistence layers.

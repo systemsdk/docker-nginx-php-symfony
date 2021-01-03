@@ -1,8 +1,6 @@
 <?php
-declare(strict_types = 1);
-/**
- * /src/Service/Interfaces/MessageServiceInterface.php
- */
+
+declare(strict_types=1);
 
 namespace App\Service\Interfaces;
 

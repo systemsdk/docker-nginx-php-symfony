@@ -1,8 +1,6 @@
 <?php
-declare(strict_types = 1);
-/**
- * /src/Command/WaitDatabaseCommand.php
- */
+
+declare(strict_types=1);
 
 namespace App\Command;
 

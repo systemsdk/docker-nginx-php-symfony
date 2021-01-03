@@ -153,7 +153,7 @@ report-code-coverage: ## update code coverage on coveralls.io. Note: COVERALLS_R
 
 ###> phpcs ###
 phpcs: ## Run PHP CodeSniffer
-	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR2 --colors -p src tests"
+	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR12 --colors -p src tests"
 ###< phpcs ###
 
 ###> ecs ###
