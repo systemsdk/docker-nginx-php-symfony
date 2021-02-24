@@ -8,7 +8,8 @@ reports/*
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
+/var/*
+!var/.gitkeep
 /vendor/
 /tools/**/vendor
 ###< symfony/framework-bundle ###

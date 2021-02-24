@@ -6,6 +6,10 @@ ENV DEBUG_ENABLED=$BUILD_ARGUMENT_DEBUG_ENABLED
 ARG BUILD_ARGUMENT_ENV=dev
 ENV ENV=$BUILD_ARGUMENT_ENV
 ENV APP_HOME /var/www/html
+ARG UID=1000
+ARG GID=1000
+ENV USERNAME=www-data
+
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -29,7 +33,9 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       libreadline-dev \
       supervisor \
       cron \
+      sudo \
       libzip-dev \
+      wget \
       librabbitmq-dev \
     && pecl install amqp \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
@@ -46,11 +52,12 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-# create document root
-RUN mkdir -p $APP_HOME/public
-
-# change owner
-RUN chown -R www-data:www-data $APP_HOME
+# create document root, fix permissions for www-data user and change owner to www-data
+RUN mkdir -p $APP_HOME/public && \
+    mkdir -p /home/$USERNAME && chown $USERNAME:$USERNAME /home/$USERNAME \
+    && usermod -u $UID $USERNAME -d /home/$USERNAME \
+    && groupmod -g $GID $USERNAME \
+    && chown -R ${USERNAME}:${USERNAME} $APP_HOME
 
 # put php config for Symfony
 COPY ./docker/$BUILD_ARGUMENT_ENV/www.conf /usr/local/etc/php-fpm.d/www.conf
@@ -61,6 +68,10 @@ COPY ./docker/general/do_we_need_xdebug.sh /tmp/
 COPY ./docker/dev/xdebug.ini /tmp/
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
 
+# install security-checker in case dev/test environment
+COPY ./docker/general/do_we_need_security-checker.sh /tmp/
+RUN chmod u+x /tmp/do_we_need_security-checker.sh && /tmp/do_we_need_security-checker.sh
+
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN chmod +x /usr/bin/composer
@@ -69,19 +80,16 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # add supervisor
 RUN mkdir -p /var/log/supervisor
 COPY --chown=root:root ./docker/general/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY --chown=root:root ./docker/general/cron /var/spool/cron/crontabs/root
+COPY --chown=root:crontab ./docker/general/cron /var/spool/cron/crontabs/root
 RUN chmod 0600 /var/spool/cron/crontabs/root
 
 # set working directory
 WORKDIR $APP_HOME
 
-# create composer folder for user www-data
-RUN mkdir -p /var/www/.composer && chown -R www-data:www-data /var/www/.composer
-
-USER www-data
+USER ${USERNAME}
 
 # copy source files
-COPY --chown=www-data:www-data . $APP_HOME/
+COPY --chown=${USERNAME}:${USERNAME} . $APP_HOME/
 
 # install all PHP dependencies
 RUN if [ "$BUILD_ARGUMENT_ENV" = "dev" ] || [ "$BUILD_ARGUMENT_ENV" = "test" ]; then COMPOSER_MEMORY_LIMIT=-1 composer install --optimize-autoloader --no-interaction --no-progress; \

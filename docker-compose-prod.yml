@@ -1,9 +1,9 @@
-version: '3'
+version: '3.5'
 
 services:
 
     nginx:
-      image: nginx:latest
+      image: ${COMPOSE_PROJECT_NAME}_nginx:latest
       build:
         context: ./docker/
         args:
@@ -18,11 +18,11 @@ services:
         - .:/var/www/html:ro
       depends_on:
         - symfony
-      links:
+      networks:
         - symfony
 
     symfony: &symfony-template
-      image: symfony:latest
+      image: ${COMPOSE_PROJECT_NAME}_symfony:latest
       build:
         context: .
         args:
@@ -31,14 +31,11 @@ services:
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_symfony
       restart: always
-      expose:
-        - 9000
       depends_on:
         - mysql
         - rabbitmq
-      links:
-        - mysql
-        - rabbitmq
+      networks:
+        - symfony
 
     ### Cron tasks, RabbitMQ consumers
     supervisord:
@@ -57,9 +54,11 @@ services:
         - MYSQL_DATABASE=symfony
       volumes:
         - ./var/mysql-data:/var/lib/mysql
+      networks:
+        - symfony
 
     rabbitmq:
-      image: rabbitmq:3-management-alpine
+      image: ${COMPOSE_PROJECT_NAME}_rabbitmq
       build:
         context: ./docker/rabbitmq/
         dockerfile: ./Dockerfile
@@ -74,3 +73,9 @@ services:
         - 15672:15672
       volumes:
         - ./var/rabbitmq:/var/lib/rabbitmq
+      networks:
+        - symfony
+
+networks:
+  symfony:
+    name: symfony

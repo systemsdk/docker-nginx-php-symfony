@@ -1,0 +1,5 @@
+framework:
+    messenger:
+        transports:
+            async_priority_high: 'in-memory://'
+            async_priority_low: 'in-memory://'

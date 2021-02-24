@@ -120,6 +120,9 @@
     "ergebnis/json-printer": {
         "version": "3.0.2"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
     "jmose/command-scheduler-bundle": {
         "version": "2.0",
         "recipe": {
@@ -562,6 +565,9 @@
     },
     "symfony/yaml": {
         "version": "v4.4.7"
+    },
+    "systemsdk/easy-log-bundle": {
+        "version": "v1.10.0"
     },
     "twig/twig": {
         "version": "v3.0.3"

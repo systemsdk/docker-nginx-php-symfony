@@ -12,7 +12,7 @@ monolog:
             level: debug
         easylog:
             type: service
-            id: EasyCorp\EasyLog\EasyLogHandler
+            id: easy_log.handler
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         firephp:
