@@ -59,15 +59,6 @@
 		"symfony/web-link": "4.4.*",
 		"symfony/yaml": "4.4.*"
 	},
-	"replace": {
-		"paragonie/random_compat": "2.*",
-		"symfony/polyfill-ctype": "*",
-		"symfony/polyfill-iconv": "*",
-		"symfony/polyfill-php56": "*",
-		"symfony/polyfill-php70": "*",
-		"symfony/polyfill-php71": "*",
-		"symfony/polyfill-php72": "*"
-	},
 	"conflict": {
 		"symfony/symfony": "*"
 	},
