@@ -4,7 +4,7 @@
 		"phpstan/phpstan":  "0.12.*",
 		"phpstan/phpstan-phpunit": "0.12.*",
 		"phpstan/phpstan-symfony": "0.12.*",
-		"roave/security-advisories": "dev-master"
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {

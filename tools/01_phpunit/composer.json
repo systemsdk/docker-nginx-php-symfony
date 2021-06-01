@@ -5,7 +5,7 @@
 		"symfony/browser-kit": "4.4.*",
 		"symfony/css-selector": "4.4.*",
 		"symfony/phpunit-bridge": "4.4.*",
-		"roave/security-advisories": "dev-master"
+		"roave/security-advisories": "dev-latest"
 	},
 	"config": {
 		"platform": {
