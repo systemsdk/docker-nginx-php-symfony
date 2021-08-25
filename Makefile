@@ -190,7 +190,7 @@ phpcpd:
 
 ###> php mess detector ###
 phpmd:
-	@make exec cmd="php ./vendor/bin/phpmd src text phpmd_ruleset.xml --suffixes php --exclude *src/Migrations/*"
+	@make exec cmd="php ./vendor/bin/phpmd src text phpmd_ruleset.xml --suffixes php"
 ###< php mess detector ###
 
 ###> PHPStan static analysis tool ###

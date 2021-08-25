@@ -28,22 +28,27 @@ final class Version20190222213409 extends AbstractMigration
         $sql = <<<SQL
 CREATE TABLE scheduled_command (
     id INT AUTO_INCREMENT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    command VARCHAR(100) NOT NULL,
+    name VARCHAR(150) NOT NULL,
+    command VARCHAR(200) NOT NULL,
     arguments LONGTEXT DEFAULT NULL,
-    cron_expression VARCHAR(100) DEFAULT NULL,
-    last_execution DATETIME NOT NULL,
+    cron_expression VARCHAR(200) DEFAULT NULL,
+    last_execution DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime)',
     last_return_code INT DEFAULT NULL,
-    log_file VARCHAR(100) DEFAULT NULL,
+    log_file VARCHAR(150) DEFAULT NULL,
     priority INT NOT NULL,
     execute_immediately TINYINT(1) NOT NULL,
     disabled TINYINT(1) NOT NULL,
     locked TINYINT(1) NOT NULL,
+    version INT DEFAULT 1 NOT NULL,
+    created_at DATETIME DEFAULT NULL COMMENT '(DC2Type:datetime)',
+    UNIQUE INDEX UNIQ_EA0DBC905E237E06 (name),
     PRIMARY KEY(id)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB
 SQL;
 
         $this->addSql($sql);
+
+        $this->addSql('ALTER TABLE scheduled_command ');
     }
 
     public function down(Schema $schema): void

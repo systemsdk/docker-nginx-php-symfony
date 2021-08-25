@@ -17,14 +17,9 @@ use Throwable;
  */
 class TestHandler implements MessageSubscriberInterface
 {
-    private LoggerInterface $logger;
-
-    /**
-     * Constructor
-     */
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
+    public function __construct(
+        private LoggerInterface $logger,
+    ) {
     }
 
     /**
@@ -37,6 +32,8 @@ class TestHandler implements MessageSubscriberInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @phpstan-return iterable<int, string>
      */
     public static function getHandledMessages(): iterable
     {
@@ -50,12 +47,11 @@ class TestHandler implements MessageSubscriberInterface
 
     /**
      * @throws Throwable
-     *
-     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */
     private function handleMessage(TestMessage $message): void
     {
+        $id = $message->getSomeId();
         // some actions here
-        $this->logger->info('Test message processed');
+        $this->logger->info('Test message processed with id: ' . $id);
     }
 }

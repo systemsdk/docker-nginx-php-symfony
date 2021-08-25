@@ -16,10 +16,10 @@ Docker environment required to run Symfony (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.19
-2. PHP 7.4 fpm
+1. Nginx 1.21
+2. PHP 8 fpm
 3. MySQL 8
-4. Symfony 4 LTS
+4. Symfony 5
 5. RabbitMQ 3
 
 ## Setting up PROD environment
@@ -202,20 +202,19 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Symfony 4](https://symfony.com)
+* [Symfony 5](https://symfony.com)
 * [doctrine-migrations-bundle](https://github.com/doctrine/DoctrineMigrationsBundle)
 * [doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle)
-* [command-scheduler-bundle](https://github.com/j-guyon/CommandSchedulerBundle)
+* [command-scheduler-bundle](https://packagist.org/packages/dukecity/command-scheduler-bundle)
 * [phpunit](https://github.com/sebastianbergmann/phpunit)
 * [phpunit-bridge](https://github.com/symfony/phpunit-bridge)
 * [browser-kit](https://github.com/symfony/browser-kit)
 * [css-selector](https://github.com/symfony/css-selector)
 * [security-checker](https://github.com/fabpot/local-php-security-checker)
 * [messenger](https://symfony.com/doc/current/messenger.html)
-* [serializer-pack](https://packagist.org/packages/symfony/serializer-pack)
 * [composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
-* [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
-* [symfony/requirements-checker](https://github.com/symfony/requirements-checker)
+* [composer-normalize](https://github.com/ergebnis/composer-normalize)
+* [requirements-checker](https://github.com/symfony/requirements-checker)
 * [security-advisories](https://github.com/Roave/SecurityAdvisories)
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)

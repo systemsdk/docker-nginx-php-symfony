@@ -1,5 +1,0 @@
-easy_log:
-    log_path: 'php://stdout'
-    max_line_length: 120
-    prefix_length: 2
-    ignored_routes: ['_wdt', '_profiler']

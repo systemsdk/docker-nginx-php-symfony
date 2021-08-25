@@ -1,6 +1,6 @@
 # See full configuration at
-#     https://github.com/J-Mose/CommandSchedulerBundle/blob/master/Resources/doc/index.md#4---available-configuration
-jmose_command_scheduler:
+#  https://github.com/Dukecity/CommandSchedulerBundle/wiki/Configuration
+dukecity_command_scheduler:
 
     # Scheduler will write output files here. set false to disable it.
     log_path: "%kernel.logs_dir%"

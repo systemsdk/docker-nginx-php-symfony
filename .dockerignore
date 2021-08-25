@@ -1,17 +1,23 @@
+### User-specific stuff:
 /.git*
 /.idea*
 .dockerignore
 .editorconfig
 
+###> symfony/framework-bundle ###
 /.env.local
 /.env.*.local
-.env.local.php
+/.env.local.php
 /public/bundles/
 /var/mysql-data
 /var/rabbitmq
 /vendor/
+###< symfony/framework-bundle ###
+
+### Vendor bin dependencies
 /tools/*/vendor/
 
+### Docker
 Dockerfile
 docker-compose.yml
 docker-compose-test-ci.yml

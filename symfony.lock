@@ -99,6 +99,19 @@
     "dragonmantank/cron-expression": {
         "version": "v3.0.2"
     },
+    "dukecity/command-scheduler-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "143b1abcb4301ca0e142fec8c5ec63a37af4f580"
+        },
+        "files": [
+            "config/packages/scheduler.yaml",
+            "config/routes/scheduler.yaml"
+        ]
+    },
     "easycorp/easy-log-handler": {
         "version": "1.0",
         "recipe": {
@@ -154,11 +167,17 @@
     "localheinz/diff": {
         "version": "1.0.1"
     },
+    "lorisleiva/cron-translator": {
+        "version": "v0.2.1"
+    },
     "monolog/monolog": {
         "version": "1.25.3"
     },
     "mtdowling/cron-expression": {
         "version": "v1.2.3"
+    },
+    "nesbot/carbon": {
+        "version": "2.52.0"
     },
     "nikic/php-parser": {
         "version": "v4.3.0"
@@ -182,6 +201,9 @@
         "version": "1.0.1"
     },
     "psr/container": {
+        "version": "1.0.0"
+    },
+    "psr/event-dispatcher": {
         "version": "1.0.0"
     },
     "psr/link": {
@@ -217,8 +239,14 @@
             "config/packages/security_checker.yaml"
         ]
     },
+    "symfony/amqp-messenger": {
+        "version": "v5.3.4"
+    },
     "symfony/asset": {
         "version": "v4.4.7"
+    },
+    "symfony/browser-kit": {
+        "version": "v5.3.4"
     },
     "symfony/cache": {
         "version": "v4.4.7"
@@ -268,6 +296,12 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v4.4.7"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v5.3.4"
+    },
+    "symfony/dom-crawler": {
+        "version": "v5.3.4"
     },
     "symfony/dotenv": {
         "version": "v4.4.7"
@@ -343,6 +377,18 @@
     "symfony/intl": {
         "version": "v4.4.7"
     },
+    "symfony/lock": {
+        "version": "5.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.2",
+            "ref": "a1c8800e40ae735206bb14586fdd6c4630a51b8d"
+        },
+        "files": [
+            "config/packages/lock.yaml"
+        ]
+    },
     "symfony/mailer": {
         "version": "4.3",
         "recipe": {
@@ -396,14 +442,32 @@
             "config/packages/test/monolog.yaml"
         ]
     },
+    "symfony/notifier": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "c31585e252b32fe0e1f30b1f256af553f4a06eb9"
+        },
+        "files": [
+            "config/packages/notifier.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "v4.4.7"
     },
     "symfony/orm-pack": {
         "version": "v1.0.8"
     },
+    "symfony/password-hasher": {
+        "version": "v5.3.4"
+    },
     "symfony/polyfill-ctype": {
         "version": "v1.22.1"
+    },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.23.1"
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.15.0"
@@ -444,6 +508,9 @@
     "symfony/proxy-manager-bridge": {
         "version": "v4.4.18"
     },
+    "symfony/redis-messenger": {
+        "version": "v5.3.4"
+    },
     "symfony/requirements-checker": {
         "version": "1.0",
         "recipe": {
@@ -466,6 +533,9 @@
             "config/packages/routing.yaml",
             "config/routes.yaml"
         ]
+    },
+    "symfony/runtime": {
+        "version": "v5.3.4"
     },
     "symfony/security-bundle": {
         "version": "4.4",
@@ -502,6 +572,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.7"
+    },
+    "symfony/string": {
+        "version": "v5.3.3"
     },
     "symfony/templating": {
         "version": "v4.4.7"
@@ -580,6 +653,9 @@
     },
     "systemsdk/easy-log-bundle": {
         "version": "v1.10.0"
+    },
+    "twig/extra-bundle": {
+        "version": "v3.3.1"
     },
     "twig/twig": {
         "version": "v3.0.3"

@@ -12,8 +12,8 @@
 		"RabbitMQ"
 	],
 	"homepage": "https://github.com/dimadeush/docker-nginx-php-symfony",
-	"version": "1.0.0",
-	"license": "proprietary",
+	"version": "0.0.0",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Dmitriy Kravtsov",
@@ -23,7 +23,7 @@
 		}
 	],
 	"require": {
-		"php": "^7.4.0",
+		"php": "^8.0.0",
 		"ext-amqp": "*",
 		"ext-ctype": "*",
 		"ext-iconv": "*",
@@ -31,51 +31,65 @@
 		"ext-mbstring": "*",
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
+		"doctrine/annotations": "^1.13",
+		"doctrine/doctrine-bundle": "^2.4",
 		"doctrine/doctrine-migrations-bundle": "^3.1",
-		"systemsdk/easy-log-bundle": "1.10.*",
-		"jmose/command-scheduler-bundle": "^3.0",
+		"doctrine/orm": "^2.9",
+		"dukecity/command-scheduler-bundle": "^4.0",
 		"sensio/framework-extra-bundle": "^6.1",
-		"symfony/asset": "4.4.*",
-		"symfony/config": "4.4.*",
-		"symfony/console": "4.4.*",
-		"symfony/dotenv": "4.4.*",
-		"symfony/expression-language": "4.4.*",
-		"symfony/flex": "^1.12",
-		"symfony/form": "4.4.*",
-		"symfony/framework-bundle": "4.4.*",
-		"symfony/http-client": "4.4.*",
-		"symfony/intl": "4.4.*",
-		"symfony/mailer": "4.4.*",
-		"symfony/messenger": "4.4.*",
+		"symfony/asset": "5.3.*",
+		"symfony/config": "5.3.*",
+		"symfony/console": "5.3.*",
+		"symfony/dotenv": "5.3.*",
+		"symfony/expression-language": "5.3.*",
+		"symfony/flex": "^1.13",
+		"symfony/form": "5.3.*",
+		"symfony/framework-bundle": "5.3.*",
+		"symfony/http-client": "5.3.*",
+		"symfony/intl": "5.3.*",
+		"symfony/mailer": "5.3.*",
+		"symfony/messenger": "5.3.*",
+		"symfony/mime": "5.3.*",
 		"symfony/monolog-bundle": "^3.7",
-		"symfony/orm-pack": "*",
-		"symfony/process": "4.4.*",
-		"symfony/routing": "4.4.*",
-		"symfony/security-bundle": "4.4.*",
-		"symfony/serializer-pack": "*",
-		"symfony/translation": "4.4.*",
-		"symfony/twig-bundle": "4.4.*",
-		"symfony/validator": "4.4.*",
-		"symfony/web-link": "4.4.*",
-		"symfony/yaml": "4.4.*"
+		"symfony/notifier": "5.3.*",
+		"symfony/process": "5.3.*",
+		"symfony/property-access": "5.3.*",
+		"symfony/property-info": "5.3.*",
+		"symfony/proxy-manager-bridge": "5.3.*",
+		"symfony/runtime": "5.3.*",
+		"symfony/routing": "5.3.*",
+		"symfony/security-bundle": "5.3.*",
+		"symfony/serializer": "5.3.*",
+		"symfony/translation": "5.3.*",
+		"symfony/twig-bundle": "5.3.*",
+		"symfony/validator": "5.3.*",
+		"symfony/web-link": "5.3.*",
+		"symfony/yaml": "5.3.*",
+		"twig/extra-bundle": "^2.12|^3.0",
+		"twig/twig": "^2.12|^3.0"
 	},
 	"conflict": {
-		"symfony/symfony": "*"
+		"symfony/debug": "<3.3",
+		"symfony/symfony": "*",
+		"symfony/twig-bundle": "<3.3"
 	},
 	"require-dev": {
 		"bamarni/composer-bin-plugin": "^1.4",
 		"doctrine/doctrine-fixtures-bundle": "^3.4",
-		"ergebnis/composer-normalize": "^2.13",
+		"systemsdk/easy-log-bundle": "1.10.*",
+		"ergebnis/composer-normalize": "^2.15",
 		"roave/security-advisories": "dev-latest",
-		"symfony/debug-bundle": "4.4.*",
-		"symfony/maker-bundle": "^1.31",
+		"symfony/browser-kit": "5.3.*",
+		"symfony/debug-bundle": "5.3.*",
+		"symfony/maker-bundle": "^1.33",
 		"symfony/requirements-checker": "^2.0",
-		"symfony/var-dumper": "4.4.*",
-		"symfony/web-profiler-bundle": "4.4.*"
+		"symfony/stopwatch": "5.3.*",
+		"symfony/var-dumper": "5.3.*",
+		"symfony/web-profiler-bundle": "5.3.*"
 	},
 	"config": {
 		"platform": {
-			"php": "7.4.0"
+			"php": "8.0.0"
 		},
 		"preferred-install": {
 			"*": "dist"
@@ -87,26 +101,29 @@
 			"target-directory": "tools"
 		},
 		"symfony": {
-			"allow-contrib": true,
-			"require": "4.4.*"
+			"allow-contrib": true
 		}
 	},
 	"autoload": {
 		"psr-4": {
 			"App\\": "src/"
-		}
+		},
+		"classmap": [],
+		"exclude-from-classmap": []
 	},
 	"autoload-dev": {
 		"psr-4": {
 			"App\\Tests\\": "tests/",
 			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
-			"Symfony\\Component\\BrowserKit\\": "tools/01_phpunit/vendor/symfony/browser-kit",
 			"Symfony\\Bridge\\PhpUnit\\": "tools/01_phpunit/vendor/symfony/phpunit-bridge",
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
-			"PhpCsFixer\\": "tools/03_ecs/vendor/friendsofphp/php-cs-fixer/src",
-			"SlevomatCodingStandard\\": "tools/03_ecs/vendor/slevomat/coding-standard/SlevomatCodingStandard",
-			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/coding-standard/src",
+			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
+			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
+			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+			"PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
+			"PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
 			"PHPStan\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Symfony",
+			"PHPStan\\Type\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Type/PHPUnit",
 			"PHPStan\\Type\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Type/Symfony"
 		}
 	},
@@ -116,17 +133,20 @@
 			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi",
 			"if which local-php-security-checker; then local-php-security-checker --update-cache && local-php-security-checker; fi",
-			"@auto-scripts"
+			"@auto-scripts",
+			"@composer dump-autoload"
 		],
 		"post-update-cmd": [
 			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
 			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
 			"if which local-php-security-checker; then local-php-security-checker --update-cache && local-php-security-checker; fi",
-			"@auto-scripts"
+			"@auto-scripts",
+			"@composer dump-autoload"
 		],
 		"auto-scripts": {
 			"cache:clear": "symfony-cmd",
 			"cache:warmup": "symfony-cmd",
+			"assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
 			"assets:install %PUBLIC_DIR%": "symfony-cmd"
 		}
 	},

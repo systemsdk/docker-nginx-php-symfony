@@ -1,4 +1,6 @@
 {
+	"name": "dimadeush/docker-nginx-php-symfony-tools",
+	"description": "",
 	"require": {},
 	"require-dev": {
 		"phpmd/phpmd": "dev-master",

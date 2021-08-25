@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // https://mlocati.github.io/php-cs-fixer-configurator/
 $finder = PhpCsFixer\Finder::create()->in(__DIR__)->exclude('somedir');
 
@@ -17,16 +19,16 @@ return (new PhpCsFixer\Config())
         'blank_line_before_statement' => ['statements' => ['continue', 'declare', 'return', 'throw', 'try']],
         'single_blank_line_before_namespace' => true,
         'blank_line_after_namespace' => true,
-        'blank_line_after_opening_tag' => true,
 
         // skip list (see ecs.php)
         'no_multiline_whitespace_around_double_arrow' => false,
         'phpdoc_no_package' => false,
         'phpdoc_summary' => false,
         'phpdoc_separation' => false,
+        'blank_line_after_opening_tag' => false,
         'class_attributes_separation' => false,
         'no_blank_lines_before_namespace' => false,
         'not_operator_with_successor_space' => false,
         'single_line_throw' => false,
-
+        'blank_line_after_strict_types' => false,
     ])->setFinder($finder);
