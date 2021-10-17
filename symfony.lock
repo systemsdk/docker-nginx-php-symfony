@@ -188,15 +188,6 @@
     "php": {
         "version": "7.4.0"
     },
-    "phpdocumentor/reflection-common": {
-        "version": "2.0.0"
-    },
-    "phpdocumentor/reflection-docblock": {
-        "version": "5.1.0"
-    },
-    "phpdocumentor/type-resolver": {
-        "version": "1.1.0"
-    },
     "psr/cache": {
         "version": "1.0.1"
     },
