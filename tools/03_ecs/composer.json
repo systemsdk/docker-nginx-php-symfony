@@ -1,9 +1,10 @@
 {
-	"name": "dimadeush/docker-nginx-php-symfony-tools",
+	"name": "systemsdk/docker-nginx-php-symfony-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
-		"symplify/easy-coding-standard": "9.4.*",
+		"friendsofphp/php-cs-fixer": "3.4.*",
+		"symplify/easy-coding-standard": "10.0.*",
 		"roave/security-advisories": "dev-latest"
 	},
 	"config": {

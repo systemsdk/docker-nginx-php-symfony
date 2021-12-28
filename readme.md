@@ -1,11 +1,13 @@
 # PHP symfony environment
 Docker environment required to run Symfony (based on official php and mysql docker hub repositories).
 
-[![Actions Status](https://github.com/dimadeush/docker-nginx-php-symfony/workflows/Symfony%20App/badge.svg)](https://github.com/dimadeush/docker-nginx-php-symfony/actions)
-[![CircleCI](https://circleci.com/gh/dimadeush/docker-nginx-php-symfony.svg?style=svg)](https://circleci.com/gh/dimadeush/docker-nginx-php-symfony)
-[![Coverage Status](https://coveralls.io/repos/github/dimadeush/docker-nginx-php-symfony/badge.svg)](https://coveralls.io/github/dimadeush/docker-nginx-php-symfony)
+[![Actions Status](https://github.com/systemsdk/docker-nginx-php-symfony/workflows/Symfony%20App/badge.svg)](https://github.com/systemsdk/docker-nginx-php-symfony/actions)
+[![CircleCI](https://circleci.com/gh/systemsdk/docker-nginx-php-symfony.svg?style=svg)](https://circleci.com/gh/systemsdk/docker-nginx-php-symfony)
+[![Coverage Status](https://coveralls.io/repos/github/systemsdk/docker-nginx-php-symfony/badge.svg)](https://coveralls.io/github/systemsdk/docker-nginx-php-symfony)
+[![Latest Stable Version](https://poser.pugx.org/systemsdk/docker-nginx-php-symfony/v)](https://packagist.org/packages/systemsdk/docker-nginx-php-symfony)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[Source code](https://github.com/dimadeush/docker-nginx-php-symfony.git)
+[Source code](https://github.com/systemsdk/docker-nginx-php-symfony.git)
 
 ## Requirements
 * Docker version 18.06 or later
@@ -22,46 +24,13 @@ Note: OS recommendation - Linux Ubuntu based.
 4. Symfony 5
 5. RabbitMQ 3
 
-## Setting up PROD environment
-1.Clone this repository from GitHub.
-
-2.Edit docker-compose-prod.yml and set necessary user/password for MySQL and RabbitMQ.
-
-Note: Delete var/mysql-data folder if it is exist.
-
-3.Edit env.prod and set necessary user/password for MySQL and RabbitMQ.
-
-4.Build, start and install the docker images from your terminal:
-```bash
-make build-prod
-make start-prod
-```
-
-5.Make sure that you have installed migrations / messenger transports:
-```bash
-make migrate-no-test
-make messenger-setup-transports
-```
-
-## Setting up STAGING environment
-1.Clone this repository from GitHub.
-
-Note: Delete var/mysql-data folder if it is exist.
-
-2.Build, start and install the docker images from your terminal:
-```bash
-make build-staging
-make start-staging
-```
-
-3.Make sure that you have installed migrations / messenger transports:
-```bash
-make migrate-no-test
-make messenger-setup-transports
-```
-
 ## Setting up DEV environment
-1.Clone this repository from GitHub.
+1.You can clone this repository from GitHub or install via composer.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-nginx-php-symfony example-app
+```
 
 2.Set another APP_SECRET for application in .env.prod and .env.staging files.
 
@@ -102,7 +71,55 @@ make migrate
 make messenger-setup-transports
 ```
 
-7.In order to use this application, please open in your browser next url: [http://localhost](http://localhost).
+7.Check and open in your browser next url: [http://localhost](http://localhost).
+
+## Setting up STAGING environment locally
+1.You can clone this repository from GitHub or install via composer.
+
+Note: Delete var/mysql-data folder if it is exist.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-nginx-php-symfony example-app
+```
+
+2.Build, start and install the docker images from your terminal:
+```bash
+make build-staging
+make start-staging
+```
+
+3.Make sure that you have installed migrations / messenger transports:
+```bash
+make migrate-no-test
+make messenger-setup-transports
+```
+
+## Setting up PROD environment locally
+1.You can clone this repository from GitHub or install via composer.
+
+If you have installed composer and want to install environment via composer you can use next cmd command:
+```bash
+composer create-project systemsdk/docker-nginx-php-symfony example-app
+```
+
+2.Edit docker-compose-prod.yml and set necessary user/password for MySQL and RabbitMQ.
+
+Note: Delete var/mysql-data folder if it is exist.
+
+3.Edit env.prod and set necessary user/password for MySQL and RabbitMQ.
+
+4.Build, start and install the docker images from your terminal:
+```bash
+make build-prod
+make start-prod
+```
+
+5.Make sure that you have installed migrations / messenger transports:
+```bash
+make migrate-no-test
+make messenger-setup-transports
+```
 
 ## Getting shell to container
 After application will start (`make start`) and in order to get shell access inside symfony container you can run following command:
@@ -240,3 +257,8 @@ Notes: Please see more commands in Makefile
 4. Iterate as needed.
 5. Make sure that "All checks have passed" on CircleCI(or another one in case you are not using CircleCI) and status is green.
 6. When PR is approved, it will be squashed & merged, into `develop` and later merged into `release/{No}` for deployment.
+
+Note: You can find git flow detail example [here](https://danielkummer.github.io/git-flow-cheatsheet).
+
+## License
+[The MIT License (MIT)](LICENSE)

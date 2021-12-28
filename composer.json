@@ -1,5 +1,5 @@
 {
-	"name": "dimadeush/docker-nginx-php-symfony",
+	"name": "systemsdk/docker-nginx-php-symfony",
 	"type": "project",
 	"description": "Docker symfony environment",
 	"keywords": [
@@ -11,8 +11,7 @@
 		"MySQL",
 		"RabbitMQ"
 	],
-	"homepage": "https://github.com/dimadeush/docker-nginx-php-symfony",
-	"version": "0.0.0",
+	"homepage": "https://github.com/systemsdk/docker-nginx-php-symfony",
 	"license": "MIT",
 	"authors": [
 		{
@@ -35,36 +34,38 @@
 		"doctrine/doctrine-bundle": "^2.5",
 		"doctrine/doctrine-migrations-bundle": "^3.2",
 		"doctrine/orm": "^2.10",
+		"phpdocumentor/reflection-docblock": "^5.3",
 		"dukecity/command-scheduler-bundle": "^4.0",
 		"sensio/framework-extra-bundle": "^6.2",
-		"symfony/asset": "5.3.*",
-		"symfony/config": "5.3.*",
-		"symfony/console": "5.3.*",
-		"symfony/dotenv": "5.3.*",
-		"symfony/expression-language": "5.3.*",
-		"symfony/flex": "^1.17",
-		"symfony/form": "5.3.*",
-		"symfony/framework-bundle": "5.3.*",
-		"symfony/http-client": "5.3.*",
-		"symfony/intl": "5.3.*",
-		"symfony/mailer": "5.3.*",
-		"symfony/messenger": "5.3.*",
-		"symfony/mime": "5.3.*",
+		"symfony/asset": "5.4.*",
+		"symfony/config": "5.4.*",
+		"symfony/console": "5.4.*",
+		"symfony/dotenv": "5.4.*",
+		"symfony/expression-language": "5.4.*",
+		"symfony/flex": "^2.0",
+		"symfony/form": "5.4.*",
+		"symfony/framework-bundle": "5.4.*",
+		"symfony/http-client": "5.4.*",
+		"symfony/intl": "5.4.*",
+		"symfony/mailer": "5.4.*",
+		"symfony/messenger": "5.4.*",
+		"symfony/mime": "5.4.*",
 		"symfony/monolog-bundle": "^3.7",
-		"symfony/notifier": "5.3.*",
-		"symfony/process": "5.3.*",
-		"symfony/property-access": "5.3.*",
-		"symfony/property-info": "5.3.*",
-		"symfony/proxy-manager-bridge": "5.3.*",
-		"symfony/runtime": "5.3.*",
-		"symfony/routing": "5.3.*",
-		"symfony/security-bundle": "5.3.*",
-		"symfony/serializer": "5.3.*",
-		"symfony/translation": "5.3.*",
-		"symfony/twig-bundle": "5.3.*",
-		"symfony/validator": "5.3.*",
-		"symfony/web-link": "5.3.*",
-		"symfony/yaml": "5.3.*",
+		"symfony/notifier": "5.4.*",
+		"symfony/process": "5.4.*",
+		"symfony/property-access": "5.4.*",
+		"symfony/property-info": "5.4.*",
+		"symfony/proxy-manager-bridge": "5.4.*",
+		"symfony/runtime": "5.4.*",
+		"symfony/routing": "5.4.*",
+		"symfony/security-bundle": "5.4.*",
+		"symfony/serializer": "5.4.*",
+		"symfony/string": "5.4.*",
+		"symfony/translation": "5.4.*",
+		"symfony/twig-bundle": "5.4.*",
+		"symfony/validator": "5.4.*",
+		"symfony/web-link": "5.4.*",
+		"symfony/yaml": "5.4.*",
 		"twig/extra-bundle": "^2.12|^3.0",
 		"twig/twig": "^2.12|^3.0"
 	},
@@ -79,13 +80,13 @@
 		"systemsdk/easy-log-bundle": "1.10.*",
 		"ergebnis/composer-normalize": "^2.16",
 		"roave/security-advisories": "dev-latest",
-		"symfony/browser-kit": "5.3.*",
-		"symfony/debug-bundle": "5.3.*",
+		"symfony/browser-kit": "5.4.*",
+		"symfony/debug-bundle": "5.4.*",
 		"symfony/maker-bundle": "^1.36",
 		"symfony/requirements-checker": "^2.0",
-		"symfony/stopwatch": "5.3.*",
-		"symfony/var-dumper": "5.3.*",
-		"symfony/web-profiler-bundle": "5.3.*"
+		"symfony/stopwatch": "5.4.*",
+		"symfony/var-dumper": "5.4.*",
+		"symfony/web-profiler-bundle": "5.4.*"
 	},
 	"config": {
 		"platform": {
@@ -94,14 +95,22 @@
 		"preferred-install": {
 			"*": "dist"
 		},
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"composer/package-versions-deprecated": true,
+			"bamarni/composer-bin-plugin": true,
+			"ergebnis/composer-normalize": true,
+			"symfony/flex": true,
+			"symfony/runtime": true
+		}
 	},
 	"extra": {
 		"bamarni-bin": {
 			"target-directory": "tools"
 		},
 		"symfony": {
-			"allow-contrib": true
+			"allow-contrib": true,
+			"require": "5.4.*"
 		}
 	},
 	"autoload": {
@@ -119,7 +128,8 @@
 			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/src/bin",
 			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
 			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
-			"Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
+			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
 			"PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
 			"PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
 			"PHPStan\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Symfony",
@@ -151,6 +161,6 @@
 		}
 	},
 	"support": {
-		"issues": "https://github.com/dimadeush/docker-nginx-php-symfony/issues"
+		"issues": "https://github.com/systemsdk/docker-nginx-php-symfony/issues"
 	}
 }

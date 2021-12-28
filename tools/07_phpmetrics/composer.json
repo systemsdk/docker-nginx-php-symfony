@@ -1,5 +1,5 @@
 {
-	"name": "dimadeush/docker-nginx-php-symfony-tools",
+	"name": "systemsdk/docker-nginx-php-symfony-tools",
 	"description": "",
 	"require": {},
 	"require-dev": {
