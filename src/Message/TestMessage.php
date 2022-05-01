@@ -14,11 +14,8 @@ use App\Message\Interfaces\MessageHighInterface;
  */
 class TestMessage implements MessageHighInterface
 {
-    private string $someId;
-
-    public function __construct(string $someId)
+    public function __construct(private string $someId)
     {
-        $this->someId = $someId;
     }
 
     public function getSomeId(): string

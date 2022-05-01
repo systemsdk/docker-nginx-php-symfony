@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,30 +17,30 @@ use Throwable;
  *
  * @package App\Command\Utils
  */
+#[AsCommand(
+    name: 'db:wait',
+    description: 'Waits for database availability.',
+)]
 class WaitDatabaseCommand extends Command
 {
     /**
      * Wait sleep time for db connection in seconds
      */
     private const WAIT_SLEEP_TIME = 2;
-    private EntityManagerInterface $em;
 
     /**
      * Constructor
      *
      * @throws LogicException
      */
-    public function __construct(EntityManagerInterface $em)
-    {
-        parent::__construct('db:wait');
-
-        $this->em = $em;
-        $this->setDescription('Waits for database availability.')
-            ->setHelp('This command allows you to wait for database availability.');
+    public function __construct(
+        private EntityManagerInterface $em,
+    ) {
+        parent::__construct();
     }
 
     /**
-     * Execute the console command.
+     * @noinspection PhpMissingParentCallCommonInspection
      *
      * {@inheritdoc}
      *
@@ -51,11 +52,11 @@ class WaitDatabaseCommand extends Command
             try {
                 $connection = $this->em->getConnection();
                 $statement = $connection->prepare('SHOW TABLES');
-                $statement->execute();
+                $statement->executeQuery();
                 $output->writeln('<info>Connection to the database is ok!</info>');
 
                 return 0;
-            } catch (Throwable $exception) {
+            } catch (Throwable) {
                 $output->writeln('<comment>Trying to connect to the database seconds:' . $i . '</comment>');
                 sleep(self::WAIT_SLEEP_TIME);
 

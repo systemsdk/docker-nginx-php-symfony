@@ -111,8 +111,8 @@ composer-update:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
 info:
-	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"
+	@make exec cmd="bin/console about"
 
 logs:
 	@docker logs -f ${COMPOSE_PROJECT_NAME}_symfony

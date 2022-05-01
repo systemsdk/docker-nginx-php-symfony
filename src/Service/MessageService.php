@@ -16,14 +16,11 @@ use Symfony\Component\Messenger\MessageBusInterface;
  */
 class MessageService implements MessageServiceInterface
 {
-    private MessageBusInterface $bus;
-
     /**
      * Constructor
      */
-    public function __construct(MessageBusInterface $bus)
+    public function __construct(private MessageBusInterface $bus)
     {
-        $this->bus = $bus;
     }
 
     /**
