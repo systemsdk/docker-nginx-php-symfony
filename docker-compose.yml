@@ -15,7 +15,7 @@ services:
         - "80:80"
         - "443:443"
       volumes:
-        - .:/var/www/html:ro
+        - .:/var/www/html:ro,cached
       depends_on:
         - symfony
       networks:
@@ -32,7 +32,7 @@ services:
         dockerfile: ./Dockerfile
       container_name: ${COMPOSE_PROJECT_NAME}_symfony
       volumes:
-        - .:/var/www/html
+        - .:/var/www/html:cached
       depends_on:
         - mysql
         - rabbitmq
@@ -56,7 +56,7 @@ services:
       ports:
         - "33061:3306"
       volumes:
-        - ./var/mysql-data:/var/lib/mysql
+        - ./var/mysql-data:/var/lib/mysql:delegated
         - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
       networks:
         - symfony
@@ -75,7 +75,7 @@ services:
       ports:
         - "15672:15672"
       volumes:
-        - ./var/rabbitmq:/var/lib/rabbitmq
+        - ./var/rabbitmq:/var/lib/rabbitmq:delegated
       networks:
         - symfony
 

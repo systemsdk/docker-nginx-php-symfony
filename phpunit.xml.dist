@@ -33,7 +33,7 @@
         <env name="KERNEL_CLASS" value="App\Kernel" />
         <env name="APP_ENV" value="test" force="true" />
         <env name="SHELL_VERBOSITY" value="-1" />
-        <env name="APP_DEBUG" value="0" />
+        <env name="APP_DEBUG" value="false" force="true" />
     </php>
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />

@@ -14,7 +14,7 @@ use App\Message\Interfaces\MessageHighInterface;
  */
 class TestMessage implements MessageHighInterface
 {
-    public function __construct(private string $someId)
+    public function __construct(private readonly string $someId)
     {
     }
 

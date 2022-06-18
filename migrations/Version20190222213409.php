@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+// phpcs:ignoreFile
 namespace DoctrineMigrations;
 
 use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
@@ -9,7 +10,7 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Auto-generated Migration: Please modify to your needs!
+ * Initial database structure
  */
 final class Version20190222213409 extends AbstractMigration
 {
@@ -18,7 +19,7 @@ final class Version20190222213409 extends AbstractMigration
      */
     public function getDescription(): string
     {
-        return '';
+        return 'Initial database structure';
     }
 
     /**

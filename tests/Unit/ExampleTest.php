@@ -6,6 +6,11 @@ namespace App\Tests\Unit;
 
 use App\Tests\UnitTestCase;
 
+/**
+ * Class ExampleTest
+ *
+ * @package App\Tests\Unit
+ */
 class ExampleTest extends UnitTestCase
 {
     /**
@@ -13,6 +18,6 @@ class ExampleTest extends UnitTestCase
      */
     public function testBasicTest(): void
     {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 }

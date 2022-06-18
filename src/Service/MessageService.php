@@ -19,7 +19,7 @@ class MessageService implements MessageServiceInterface
     /**
      * Constructor
      */
-    public function __construct(private MessageBusInterface $bus)
+    public function __construct(private readonly MessageBusInterface $bus)
     {
     }
 

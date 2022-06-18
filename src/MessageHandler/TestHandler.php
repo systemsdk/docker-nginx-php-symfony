@@ -18,7 +18,7 @@ use Throwable;
 class TestHandler implements MessageSubscriberInterface
 {
     public function __construct(
-        private LoggerInterface $logger,
+        private readonly LoggerInterface $logger,
     ) {
     }
 
