@@ -6,11 +6,14 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
 * Go to `Settings -> Plugins` and install next plugins:
     - .env files support
     - .ignore
-    - Makefile support
+    - Makefile Language
     - Php Annotations
-    - Php Inspections ​(EA Extended)
+    - Php Inspections (EA Extended)
     - Php Toolbox
-    - Symfony support​ 
+    - Symfony support (Has some paid functions, [homepage](https://espend.de/phpstorm/plugin/symfony))
+    - Rainbow brackets
+    - String Manipulation
+    - Extra ToolWindow Colorful Icons
 * Go to `Settings -> Php -> Symfony` and check `Enable plugin for this project` and set Web Directory value as `public`.
 * Go to `Settings -> Php -> Composer` and set path to composer.json, check other settings:
 
@@ -40,6 +43,11 @@ Next you need to add Run/Debug configuration for PHP Remote Debug. It needs to b
 ### Debugging
 In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md) documentation.
 
+### Code Style
+* Go to `Settings -> Editor -> Code Style` and import scheme `Systemsdk` (CodeStyle.xml) from [docs/phpstorm](phpstorm):
+
+![Path mappings](images/phpstorm_code_style.png)
+
 ### PHP Inspections and code quality tools
 * Go to `Settings -> PHP -> Quality tools` and configure next:
 
@@ -49,7 +57,7 @@ In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md)
 ![Path mappings](images/phpstorm_09.png)
 ![Path mappings](images/phpstorm_10.png)
 
-* Go to `Settings -> Editor -> Inspections` and import profile Systemsdk from [docs/phpstorm](phpstorm) and make sure that you have proper path to `phpmd_ruleset.xml`:
+* Go to `Settings -> Editor -> Inspections` and import profile `Systemsdk` (Inspections.xml) from [docs/phpstorm](phpstorm) and make sure that you have proper path to `phpmd_ruleset.xml`:
 
 ![Path mappings](images/phpstorm_11.png)
 
