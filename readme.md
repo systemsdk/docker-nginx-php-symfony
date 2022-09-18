@@ -18,18 +18,16 @@ Docker environment required to run Symfony (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.21
-2. PHP 8 fpm
+1. Nginx 1.23
+2. PHP 8.1 fpm
 3. MySQL 8
 4. Symfony 6
 5. RabbitMQ 3
 
 ## Setting up Docker and docker-compose
-1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-   or [install on Mac/Windows](https://docs.docker.com/engine/install/).
+1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose please follow steps on page [install compose](https://docs.docker.com/compose/install/#install-compose)
-   and select `Linux Standalone binary` tab if you are using Linux OS.
+2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/other/#install-compose-standalone) if you are using Linux OS.
 
 Note: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
 
@@ -241,6 +239,8 @@ Notes: Please see more commands in Makefile
 * [messenger](https://symfony.com/doc/current/messenger.html)
 * [composer-bin-plugin](https://github.com/bamarni/composer-bin-plugin)
 * [composer-normalize](https://github.com/ergebnis/composer-normalize)
+* [composer-unused](https://packagist.org/packages/icanhazstring/composer-unused)
+* [composer-require-checker](https://packagist.org/packages/maglnet/composer-require-checker)
 * [requirements-checker](https://github.com/symfony/requirements-checker)
 * [security-advisories](https://github.com/Roave/SecurityAdvisories)
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
