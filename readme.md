@@ -45,14 +45,16 @@ Note 1: You can get unique secret key for example [here](http://nux.net/secret).
 
 Note 2: Do not use .env.local.php on dev and test environment (delete it if exist).
 
-Note 3: Delete var/mysql-data folder if it is exist.
+Note 3: If you want to change default web port/xdebug configuration you can create .env.local file and set some params (see .env file).
+
+Note 4: Delete var/mysql-data folder if it exists.
 
 3.Add domain to local 'hosts' file:
 ```bash
 127.0.0.1    localhost
 ```
 
-4.Configure `/docker/dev/xdebug.ini` (optional):
+4.Configure `/docker/dev/xdebug-main.ini` (Linux/Windows) or `/docker/dev/xdebug-osx.ini` (MacOS) (optional):
 
 - In case you need debug only requests with IDE KEY: PHPSTORM from frontend in your browser:
 ```bash

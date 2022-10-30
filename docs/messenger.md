@@ -13,8 +13,8 @@ Once your messages have been routed, it will be consumed. In case any issue just
 ### Message and Handler
 Before you can send a message, you must create it first. In order to do something when your message is dispatched, you need to create a message handler. Please follow docs in order to implement it:
 
-* [Message](https://symfony.com/doc/current/messenger.html#message)
-* [Handler](https://symfony.com/doc/current/messenger.html#registering-handlers)
+* [Message](https://symfony.com/doc/current/messenger.html#creating-a-message-handler)
+* [Handler](https://symfony.com/doc/current/messenger.html#creating-a-message-handler)
 
 ## RabbitMQ Management HTTP API
 When activated, the management plugin provides an HTTP API at http://server-name:15672/api/ by default. Browse to that location for more information on the API. For convenience the same API reference is available from GitHub:
