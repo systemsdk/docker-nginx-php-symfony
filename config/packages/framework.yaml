@@ -3,6 +3,7 @@ framework:
     secret: '%env(APP_SECRET)%'
     csrf_protection: false
     http_method_override: false
+    handle_all_throwables: true
     default_locale: '%locale%'
 
     # see https://symfony.com/doc/current/deployment/proxies.html
@@ -32,5 +33,7 @@ framework:
 when@test:
     framework:
         test: true
+        profiler:
+            collect: false
         session:
             storage_factory_id: session.storage.factory.mock_file

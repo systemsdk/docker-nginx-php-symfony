@@ -45,7 +45,7 @@ make exec-by-root               # Executes some command, under the root user, de
 make report-prepare             # Creates /reports/coverage folder, will be used for report after running tests
 make report-clean               # Removes all reports in /reports/ folder
 
-make wait-for-db                # Checks MySQL database availability, using for eCI (f.e. /.circleci folder)
+make wait-for-db                # Checks MySQL database availability, using for CI (f.e. /.circleci folder)
 
 make composer-install-no-dev    # Installs composer no-dev dependencies
 make composer-install           # Installs composer dependencies

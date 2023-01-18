@@ -19,7 +19,7 @@ Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
 1. Nginx 1.23
-2. PHP 8.1 fpm
+2. PHP 8.2 fpm
 3. MySQL 8
 4. Symfony 6
 5. RabbitMQ 3

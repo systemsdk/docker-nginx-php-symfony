@@ -18,4 +18,4 @@ Before you can send a message, you must create it first. In order to do somethin
 
 ## RabbitMQ Management HTTP API
 When activated, the management plugin provides an HTTP API at http://server-name:15672/api/ by default. Browse to that location for more information on the API. For convenience the same API reference is available from GitHub:
-* [RabbitMQ Management HTTP API](https://rawcdn.githack.com/rabbitmq/rabbitmq-management/v3.8.3/priv/www/api/index.html)
+* [RabbitMQ Management HTTP API](https://rawcdn.githack.com/rabbitmq/rabbitmq-server/v3.11.5/deps/rabbitmq_management/priv/www/api/index.html)
