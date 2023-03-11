@@ -1,7 +1,9 @@
 {
 	"name": "systemsdk/docker-nginx-php-symfony-tools",
 	"description": "",
-	"require": {},
+	"require": {
+		"php": "^8.2.0"
+	},
 	"require-dev": {
 		"phpstan/phpstan":  "1.9.*",
 		"phpstan/phpstan-phpunit": "1.3.*",

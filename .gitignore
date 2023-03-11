@@ -18,6 +18,7 @@ reports/*
 .phpunit
 .phpunit.result.cache
 /phpunit.xml
+.phpunit.cache
 ###< symfony/phpunit-bridge ###
 
 ###> friendsofphp/php-cs-fixer ###
