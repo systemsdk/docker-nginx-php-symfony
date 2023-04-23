@@ -31,7 +31,7 @@
 		"ext-pdo": "*",
 		"ext-pdo_mysql": "*",
 		"doctrine/annotations": "^2.0",
-		"doctrine/doctrine-bundle": "^2.8",
+		"doctrine/doctrine-bundle": "^2.9",
 		"doctrine/doctrine-migrations-bundle": "^3.2",
 		"doctrine/orm": "^2.14",
 		"phpdocumentor/reflection-docblock": "^5.3",

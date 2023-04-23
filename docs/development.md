@@ -87,26 +87,6 @@ make phpcs
 If you are using [PhpStorm](https://www.jetbrains.com/phpstorm/) you can configure PHP Code Sniffer using recommendation
 [here](https://www.jetbrains.com/help/phpstorm/using-php-code-sniffer.html).
 
-## PHP copy/paste detector
-This tool is a copy/paste detector for PHP code.
-
-PHP copy/paste detector is available for dev/test environment using next local shell command:
-```bash
-make phpcpd
-```
-
-## PHP mess detector
-This tool takes a given PHP source code base and look for several potential problems within that source. These problems can be things like:
-* Possible bugs
-* Suboptimal code
-* Overcomplicated expressions
-* Unused parameters, methods, properties
-
-PHP mess detector is available for dev/test environment using next local shell command:
-```bash
-make phpmd
-```
-
 ## PHPStan static analysis tool
 PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code.
 It moves PHP closer to compiled languages in the sense that the correctness of each line of the code can be checked before you run the actual line.
@@ -151,6 +131,42 @@ vendor/bin/rector process src/your_folder_with_code_for_refactoring
 ```
 Note: You can process rector without specifying folder, in such case it will process src and tests folder.
 
+## PHP mess detector
+This tool takes a given PHP source code base and look for several potential problems within that source. These problems can be things like:
+* Possible bugs
+* Suboptimal code
+* Overcomplicated expressions
+* Unused parameters, methods, properties
+
+PHP mess detector is available for dev/test environment using next local shell command:
+```bash
+make phpmd
+```
+
+## PHP copy/paste detector
+This tool is a copy/paste detector for PHP code.
+
+PHP copy/paste detector is available for dev/test environment using next local shell command:
+```bash
+make phpcpd
+```
+
+## Composer tools
+To normalize or validate your composer.json you can use next local shell commands:
+```bash
+make composer-normalize
+make composer-validate
+```
+
+If you need to find unused packages by scanning your code you can use next local shell commands:
+```bash
+make composer-unused
+```
+
+In order to check the defined dependencies against your code you can use next local shell commands:
+```bash
+make composer-require-checke
+```
 
 ## Database changes
 Doctrine migrations it is functionality for versioning your database schema and easily deploying changes to it.

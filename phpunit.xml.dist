@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="tools/01_phpunit/vendor/phpunit/phpunit/phpunit.xsd"
          backupGlobals="false"
          bootstrap="tests/bootstrap.php"
          colors="true"
@@ -16,7 +16,8 @@
          displayDetailsOnTestsThatTriggerErrors="true"
          cacheDirectory=".phpunit.cache"
 >
-    <coverage>
+    <coverage/>
+    <source>
         <include>
             <directory suffix=".php">./src</directory>
         </include>
@@ -25,7 +26,7 @@
             <directory>./src/DataFixtures</directory>
             <file>./src/Kernel.php</file>
         </exclude>
-    </coverage>
+    </source>
     <php>
         <ini name="error_reporting" value="-1" />
         <ini name="display_errors" value="On" />
