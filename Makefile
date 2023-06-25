@@ -249,11 +249,11 @@ drop-migrate: ## Drops databases and runs all migrations for the main/test datab
 	@make migrate
 
 migrate-no-test: ## Runs all migrations for main database
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
 
 migrate: ## Runs all migrations for main/test databases
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
-	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing --env=test"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction"
+	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --env=test"
 
 fixtures: ## Runs all fixtures for test database without --append option (tables will be dropped and recreated)
 	@make exec cmd="php bin/console doctrine:fixtures:load --env=test"
@@ -294,7 +294,7 @@ phpcpd: ## Runs php copy/paste detector
 	@make exec cmd="php phpcpd.phar --fuzzy src tests"
 
 phpmd: ## Runs php mess detector
-	@make exec cmd="php ./vendor/bin/phpmd src text phpmd_ruleset.xml --suffixes php"
+	@make exec cmd="php ./vendor/bin/phpmd src,tests text phpmd_ruleset.xml --suffixes php"
 
 phpstan: ## Runs PhpStan static analysis tool
 ifeq ($(INSIDE_DOCKER_CONTAINER), 1)

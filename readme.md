@@ -18,7 +18,7 @@ Docker environment required to run Symfony (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.23
+1. Nginx 1.25
 2. PHP 8.2 fpm
 3. MySQL 8
 4. Symfony 6
