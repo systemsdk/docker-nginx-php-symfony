@@ -23,11 +23,12 @@ Note: OS recommendation - Linux Ubuntu based.
 3. MySQL 8
 4. Symfony 6
 5. RabbitMQ 3
+6. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker and docker-compose
 1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/other/#install-compose-standalone) if you are using Linux OS.
+2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/standalone/) if you are using Linux OS.
 
 Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
 
@@ -82,7 +83,10 @@ make migrate
 make messenger-setup-transports
 ```
 
-7.Check and open in your browser next url: [http://localhost](http://localhost).
+7.In order to use this application, please open in your browser next urls:
+- [http://localhost](http://localhost)
+- [http://localhost:15672 (RabbitMQ)](http://localhost:15672)
+- [http://localhost:8025 (Mailpit)](http://localhost:8025)
 
 ## Setting up STAGING environment locally
 1.You can clone this repository from GitHub or install via composer.
