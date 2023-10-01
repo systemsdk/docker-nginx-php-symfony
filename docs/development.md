@@ -175,7 +175,6 @@ The platform can be integrated into any CI/CD pipeline and can analyze code.
 If you are using IDE PHPStorm, you can use it via menu `Tools` -> `Qodana` -> `Try Code Analysis with Qodana` -> `Try Locally` -> `Run`.
 You can find some video [here](https://blog.jetbrains.com/qodana/2023/09/code-quality-under-pressure-supporting-developers-with-qodana-integration-in-intellij-based-ides/) or more info [here](https://www.jetbrains.com/help/qodana/getting-started.html).
 
-
 ## Database changes
 Doctrine migrations it is functionality for versioning your database schema and easily deploying changes to it.
 Migration files contain all necessary database changes to get application running with its database structure.
