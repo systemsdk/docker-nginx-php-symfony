@@ -15,6 +15,7 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
     - String Manipulation
     - Extra ToolWindow Colorful Icons
 * Go to `Settings -> Php -> Symfony` and check `Enable plugin for this project` and set Web Directory value as `public`.
+* If you want control quality of your project - pay your attention to tools, described [here](development.md) and `Qodana` tool.
 
 ### CLI Interpreter
 You need to set correct CLI interpreter for your PhpStorm.
@@ -96,3 +97,4 @@ For inspecting your code you can use main menu item `Code -> Inspect Code`. Code
 * [PHP Annotations plugin for PhpStorm](https://plugins.jetbrains.com/plugin/7320)
 * [PHP Toolbox plugin for PhpStorm](https://plugins.jetbrains.com/plugin/8133-php-toolbox/)
 * [Php Inspections (EA Extended) plugin for PhpStorm](https://plugins.jetbrains.com/idea/plugin/7622-php-inspections-ea-extended-)
+* [Qodana code quality tool](https://blog.jetbrains.com/qodana/2023/09/code-quality-under-pressure-supporting-developers-with-qodana-integration-in-intellij-based-ides/)

@@ -165,8 +165,16 @@ make composer-unused
 
 In order to check the defined dependencies against your code you can use next local shell commands:
 ```bash
-make composer-require-checke
+make composer-require-checker
 ```
+
+## Qodana (trial)
+Qodana is a smart code quality platform by JetBrains. This powerful static analysis engine enables development teams to automate code reviews, build quality gates, and enforce code quality guidelines enterprise-wide – all within their JetBrains ecosystems.
+The platform can be integrated into any CI/CD pipeline and can analyze code.
+
+If you are using IDE PHPStorm, you can use it via menu `Tools` -> `Qodana` -> `Try Code Analysis with Qodana` -> `Try Locally` -> `Run`.
+You can find some video [here](https://blog.jetbrains.com/qodana/2023/09/code-quality-under-pressure-supporting-developers-with-qodana-integration-in-intellij-based-ides/) or more info [here](https://www.jetbrains.com/help/qodana/getting-started.html).
+
 
 ## Database changes
 Doctrine migrations it is functionality for versioning your database schema and easily deploying changes to it.
