@@ -11,6 +11,8 @@ doctrine:
         # https://symfony.com/doc/current/messenger.html#doctrine-transport
         schema_filter: '~^(?!messenger_messages)~'
         url: '%env(resolve:DATABASE_URL)%'
+        profiling_collect_backtrace: '%kernel.debug%'
+
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true

@@ -5,7 +5,6 @@ declare(strict_types=1);
 // phpcs:ignoreFile
 namespace <namespace>;
 
-use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
@@ -24,15 +23,7 @@ final class <className> extends AbstractMigration
     }
 
     /**
-     * @noinspection PhpMissingParentCallCommonInspection
-     */
-    public function isTransactional(): bool
-    {
-        return false;
-    }
-
-    /**
-     * @throws Exception
+     * {@inheritdoc}
      */
     public function up(Schema $schema): void
     {
@@ -48,7 +39,7 @@ final class <className> extends AbstractMigration
     /**
      * @noinspection PhpMissingParentCallCommonInspection
      *
-     * @throws Exception
+     * {@inheritdoc}
      */
     public function down(Schema $schema): void
     {

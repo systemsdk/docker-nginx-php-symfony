@@ -15,7 +15,7 @@ This document describing how you can configure your IDE [PhpStorm](https://www.j
     - String Manipulation
     - Extra ToolWindow Colorful Icons
 * Go to `Settings -> Php -> Symfony` and check `Enable plugin for this project` and set Web Directory value as `public`.
-* If you want control quality of your project - pay your attention to tools, described [here](development.md) and `Qodana` tool.
+* If you want control quality of your PHP project - pay your attention to the tools, described [here](development.md).
 
 ### CLI Interpreter
 You need to set correct CLI interpreter for your PhpStorm.
@@ -48,7 +48,9 @@ Next you need to add Run/Debug configuration for PHP Remote Debug. It needs to b
 In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md) documentation.
 
 ### Code Style
-* Go to `Settings -> Editor -> Code Style` and import scheme `Systemsdk` (CodeStyle.xml) from [docs/phpstorm](phpstorm):
+This environment has committed `.idea/` catalog, so most IDE configs should be available out of the box. But if you want to have own configs, you can put `./idea` in gitignore and delete folder from the git repository.
+Anyway you can always import our recommended code style if you don't have committed `./idea` folder inside your repository: 
+* Go to `Settings -> Editor -> Code Style -> PHP` and import scheme `Project` (CodeStyle.xml) from [docs/phpstorm](phpstorm):
 
 ![Path mappings](images/phpstorm_code_style.png)
 
@@ -66,9 +68,9 @@ In order to use Xdebug as debugging tool please follow [Using Xdebug](xdebug.md)
 ![Path mappings](images/phpstorm_11_1.png)
 ![Path mappings](images/phpstorm_11_2.png)
 
-* Go to `Settings -> Editor -> Inspections` and import profile `Systemsdk` (Inspections.xml) from [docs/phpstorm](phpstorm):
+* If you don't have committed folder `.idea/`, go to `Settings -> Editor -> Inspections` and import profile `Project Default` (Inspections.xml) from [docs/phpstorm](phpstorm):
 
-![Path mappings](images/phpstorm_11_3.png)
+![Path mappings](images/phpstorm_inspections.png)
 
 * Go to `Settings -> Tools -> External tools` and create ecs tool:
 
@@ -93,7 +95,7 @@ For inspecting your code you can use main menu item `Code -> Inspect Code`. Code
 * [Configuring Remote PHP Interpreters](https://www.jetbrains.com/help/phpstorm/configuring-remote-interpreters.html)
 * [Test Frameworks](https://www.jetbrains.com/help/phpstorm/php-test-frameworks.html)
 * [Symfony Development using PhpStorm](http://blog.jetbrains.com/phpstorm/2014/08/symfony-development-using-phpstorm/)
-* [Symfony Plugin plugin for PhpStorm](https://plugins.jetbrains.com/plugin/7219-symfony-plugin)
+* [Symfony Plugin for PhpStorm](https://plugins.jetbrains.com/plugin/7219-symfony-plugin)
 * [PHP Annotations plugin for PhpStorm](https://plugins.jetbrains.com/plugin/7320)
 * [PHP Toolbox plugin for PhpStorm](https://plugins.jetbrains.com/plugin/8133-php-toolbox/)
 * [Php Inspections (EA Extended) plugin for PhpStorm](https://plugins.jetbrains.com/idea/plugin/7622-php-inspections-ea-extended-)

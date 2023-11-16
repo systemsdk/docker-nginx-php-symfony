@@ -1,21 +1,26 @@
 ### User-specific stuff:
 /.git*
-/.idea*
+/.idea/workspace.xml
 .dockerignore
-.editorconfig
 
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.*.local
 /.env.local.php
 /public/bundles/
-/var/mysql-data
-/var/rabbitmq
 /vendor/
 ###< symfony/framework-bundle ###
 
+### Other data
+/var/mysql-data
+/var/rabbitmq
+/var/elasticsearch-data
+/var/redis
+
 ### Vendor bin dependencies
 /tools/*/vendor/
+.phpunit.cache
+.phpunit.result.cache
 
 ### Docker
 Dockerfile
