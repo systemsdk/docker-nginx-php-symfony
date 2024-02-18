@@ -8,6 +8,7 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
+use Override;
 
 /**
  * Initial database structure
@@ -17,6 +18,7 @@ final class Version20190222213409 extends AbstractMigration
     /**
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[Override]
     public function getDescription(): string
     {
         return 'Initial database structure';
@@ -25,6 +27,7 @@ final class Version20190222213409 extends AbstractMigration
     /**
      * @noinspection PhpMissingParentCallCommonInspection
      */
+    #[Override]
     public function isTransactional(): bool
     {
         return false;
@@ -33,6 +36,7 @@ final class Version20190222213409 extends AbstractMigration
     /**
      * {@inheritdoc}
      */
+    #[Override]
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -67,6 +71,7 @@ SQL;
         $this->addSql('ALTER TABLE scheduled_command ');
     }
 
+    #[Override]
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs

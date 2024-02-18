@@ -7,9 +7,6 @@
           <option name="path" value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
         </Configuration>
         <Configuration>
-          <option name="path" value="$PROJECT_DIR$/tests" />
-        </Configuration>
-        <Configuration>
           <option name="path" value="$PROJECT_DIR$/tools/04_php-coveralls/tests" />
         </Configuration>
         <Configuration>
@@ -20,6 +17,12 @@
         </Configuration>
         <Configuration>
           <option name="path" value="$PROJECT_DIR$/tools/05_phpinsights/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tests" />
+        </Configuration>
+        <Configuration>
+          <option name="path" value="$PROJECT_DIR$/tools/01_phpunit/tests" />
         </Configuration>
       </list>
     </option>
