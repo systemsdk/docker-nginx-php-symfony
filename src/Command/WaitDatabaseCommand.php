@@ -13,8 +13,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
 /**
- * Class WaitDatabaseCommand
- *
  * @package App\Command\Utils
  */
 #[AsCommand(

@@ -10,8 +10,6 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- * Class MessageService
- *
  * @package App\Service
  */
 class MessageService implements MessageServiceInterface

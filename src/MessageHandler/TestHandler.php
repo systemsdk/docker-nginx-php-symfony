@@ -10,7 +10,6 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Throwable;
 
 /**
- * Class TestHandler
  * If you need handling multiple - follow https://symfony.com/doc/current/messenger.html#handling-multiple-messages
  * TODO: This is handler example, you can delete it.
  *

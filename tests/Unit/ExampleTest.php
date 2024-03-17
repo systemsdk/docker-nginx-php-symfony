@@ -7,8 +7,6 @@ namespace App\Tests\Unit;
 use App\Tests\UnitTestCase;
 
 /**
- * Class ExampleTest
- *
  * @package App\Tests\Unit
  */
 class ExampleTest extends UnitTestCase
