@@ -43,8 +43,8 @@
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
-        <testsuite name="Functional">
-            <directory suffix="Test.php">./tests/Functional</directory>
+        <testsuite name="Application">
+            <directory suffix="Test.php">./tests/Application</directory>
         </testsuite>
     </testsuites>
 </phpunit>

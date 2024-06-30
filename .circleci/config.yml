@@ -28,7 +28,7 @@ jobs:
             make info
 
       - run:
-          name: Run unit/functional tests
+          name: Run unit/application tests
           command: |
             make phpunit
 

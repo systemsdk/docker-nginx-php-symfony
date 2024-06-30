@@ -5,6 +5,7 @@ declare(strict_types=1);
 use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\CastNotation\CastSpacesFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
+use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
 use PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\SingleLineThrowFixer;
@@ -100,6 +101,12 @@ return static function (ECSConfig $ecsConfig): void {
                      //'use',
                      'use_trait',
                  ],
+            ],
+        ],
+        [
+            ClassDefinitionFixer::class,
+            [
+                'multi_line_extends_each_single_line' => true,
             ],
         ],
     ];

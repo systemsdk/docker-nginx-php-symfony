@@ -10,27 +10,25 @@ Docker environment required to run Symfony (based on official php and mysql dock
 [Source code](https://github.com/systemsdk/docker-nginx-php-symfony.git)
 
 ## Requirements
-* Docker version 18.06 or later
-* Docker compose version 1.22 or later
+* Docker Engine version 18.06 or later
+* Docker Compose version 1.22 or later
 * An editor or IDE
 * MySQL Workbench
 
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.25
+1. Nginx 1.27
 2. PHP 8.3 fpm
 3. MySQL 8
-4. Symfony 6
+4. Symfony 7
 5. RabbitMQ 3
 6. Mailpit (only for debug emails on dev environment)
 
-## Setting up Docker and docker-compose
-1.For installing Docker please follow steps mentioned on page [install on Ubuntu linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/) or [install on Mac/Windows](https://docs.docker.com/engine/install/).
+## Setting up Docker Engine with Docker Compose
+For installing Docker Engine with docker compose please follow steps mentioned on page [Docker Engine](https://docs.docker.com/engine/install/).
 
-2.For installing docker-compose as `Linux Standalone binary` please follow steps on the page [install compose](https://docs.docker.com/compose/install/standalone/) if you are using Linux OS.
-
-Note 1: Please run next cmd after above step 2 if you are using Linux OS: `sudo usermod -aG docker $USER`
+Note 1: Please run next cmd after above step if you are using Linux OS: `sudo usermod -aG docker $USER`
 
 Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable [virtiofs](https://www.docker.com/blog/speed-boost-achievement-unlocked-on-docker-desktop-4-6-for-mac/) for performance (enabled by default since Docker Desktop v4.22).
 
@@ -118,7 +116,7 @@ If you have installed composer and want to install environment via composer you 
 composer create-project systemsdk/docker-nginx-php-symfony example-app
 ```
 
-2.Edit docker-compose-prod.yml and set necessary user/password for MySQL and RabbitMQ.
+2.Edit compose-prod.yaml and set necessary user/password for MySQL and RabbitMQ.
 
 Note: Delete var/mysql-data folder if it is exist.
 
@@ -246,7 +244,7 @@ etc....
 Notes: Please see more commands in Makefile
 
 ## Architecture & packages
-* [Symfony 6](https://symfony.com)
+* [Symfony](https://symfony.com)
 * [doctrine-migrations-bundle](https://github.com/doctrine/DoctrineMigrationsBundle)
 * [doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle)
 * [command-scheduler-bundle](https://packagist.org/packages/dukecity/command-scheduler-bundle)

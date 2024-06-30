@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
@@ -16,4 +14,5 @@ return [
     Systemsdk\Bundle\EasyLogBundle\EasyLogBundle::class => ['dev' => true, 'test' => true],
     Dukecity\CommandSchedulerBundle\DukecityCommandSchedulerBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Knp\Bundle\TimeBundle\KnpTimeBundle::class => ['all' => true],
 ];

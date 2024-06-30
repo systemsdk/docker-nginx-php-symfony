@@ -8,6 +8,9 @@
         <option value="$PROJECT_DIR$/tools/04_php-coveralls/tests" />
         <option value="$PROJECT_DIR$/tools/08_rector/tests" />
         <option value="$PROJECT_DIR$/tests" />
+        <option value="$PROJECT_DIR$/tools/09_composer/tests" />
+        <option value="$PROJECT_DIR$/tools/03_ecs/tests" />
+        <option value="$PROJECT_DIR$/tools/06_phpmd/tests" />
       </list>
     </option>
   </component>

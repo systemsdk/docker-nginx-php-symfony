@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Functional;
+namespace App\Tests\Application;
 
-use App\Tests\FunctionalTestCase;
+use App\Tests\ApplicationTestCase;
 use Throwable;
 
 /**
- * @package App\Tests\Functional
+ * @package App\Tests
  */
-class ExampleTest extends FunctionalTestCase
+class ExampleTest extends ApplicationTestCase
 {
     /**
      * A basic test example.
