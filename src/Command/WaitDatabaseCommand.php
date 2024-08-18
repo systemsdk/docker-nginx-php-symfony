@@ -27,8 +27,6 @@ class WaitDatabaseCommand extends Command
     private const int WAIT_SLEEP_TIME = 2;
 
     /**
-     * Constructor
-     *
      * @throws LogicException
      */
     public function __construct(
