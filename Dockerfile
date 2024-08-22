@@ -98,7 +98,7 @@ USER ${USERNAME}
 
 # Add necessary stuff to bash autocomplete
 RUN echo 'source /usr/share/bash-completion/bash_completion' >> /home/${USERNAME}/.bashrc \
-    && echo 'alias console="/app/bin/console"' >> /home/${USERNAME}/.bashrc
+    && echo 'alias console="/var/www/html/bin/console"' >> /home/${USERNAME}/.bashrc
 
 # copy fish configs
 COPY --chown=${USERNAME}:${USERNAME} ./docker/fish/completions/ /home/${USERNAME}/.config/fish/completions/
