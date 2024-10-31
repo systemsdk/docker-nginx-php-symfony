@@ -9,9 +9,6 @@
         <option name="myPath" value="$PROJECT_DIR$/tools/05_phpinsights" />
       </PhpSpecSuiteConfiguration>
       <PhpSpecSuiteConfiguration>
-        <option name="myPath" value="$PROJECT_DIR$" />
-      </PhpSpecSuiteConfiguration>
-      <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/04_php-coveralls" />
       </PhpSpecSuiteConfiguration>
       <PhpSpecSuiteConfiguration>
@@ -21,18 +18,6 @@
         <option name="myPath" value="$PROJECT_DIR$/tools/01_phpunit" />
       </PhpSpecSuiteConfiguration>
       <PhpSpecSuiteConfiguration>
-        <option name="myPath" value="$PROJECT_DIR$/tools/05_phpinsights" />
-      </PhpSpecSuiteConfiguration>
-      <PhpSpecSuiteConfiguration>
-        <option name="myPath" value="$PROJECT_DIR$" />
-      </PhpSpecSuiteConfiguration>
-      <PhpSpecSuiteConfiguration>
-        <option name="myPath" value="$PROJECT_DIR$/tools/01_phpunit" />
-      </PhpSpecSuiteConfiguration>
-      <PhpSpecSuiteConfiguration>
-        <option name="myPath" value="$PROJECT_DIR$" />
-      </PhpSpecSuiteConfiguration>
-      <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/09_composer" />
       </PhpSpecSuiteConfiguration>
       <PhpSpecSuiteConfiguration>
@@ -40,6 +25,9 @@
       </PhpSpecSuiteConfiguration>
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/tools/06_phpmd" />
+      </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$/tools/02_phpstan" />
       </PhpSpecSuiteConfiguration>
     </suites>
   </component>

@@ -1,81 +1,82 @@
 services:
 
     nginx:
-      image: ${COMPOSE_PROJECT_NAME}-nginx:latest
-      build:
-        context: ./docker/
-        args:
-          BUILD_ARGUMENT_ENV: staging
-        dockerfile: ./nginx/Dockerfile
-      container_name: ${COMPOSE_PROJECT_NAME}-nginx
-      restart: always
-      ports:
-        - "${WEB_PORT_HTTP}:80"
-        - "${WEB_PORT_SSL}:443"
-      volumes:
-        - ./:/var/www/html:ro,cached
-      depends_on:
-        - symfony
-      networks:
-        - symfony
+        image: ${COMPOSE_PROJECT_NAME}-nginx:latest
+        build:
+            context: ./docker/
+            args:
+                BUILD_ARGUMENT_ENV: staging
+            dockerfile: ./nginx/Dockerfile
+        container_name: ${COMPOSE_PROJECT_NAME}-nginx
+        restart: always
+        ports:
+            - "${WEB_PORT_HTTP}:80"
+            - "${WEB_PORT_SSL}:443"
+        volumes:
+            - ./:/var/www/html:ro,cached
+        depends_on:
+            - symfony
+        networks:
+            - symfony
 
     symfony: &symfony-template
-      image: ${COMPOSE_PROJECT_NAME}-symfony:latest
-      build:
-        context: .
-        args:
-          BUILD_ARGUMENT_ENV: staging
-          HOST_UID: ${HOST_UID}
-          HOST_GID: ${HOST_GID}
-        dockerfile: ./Dockerfile
-      container_name: ${COMPOSE_PROJECT_NAME}-symfony
-      restart: always
-      depends_on:
-        - mysql
-        - rabbitmq
-      networks:
-        - symfony
+        image: ${COMPOSE_PROJECT_NAME}-symfony:latest
+        build:
+            context: .
+            args:
+                BUILD_ARGUMENT_ENV: staging
+                HOST_UID: ${HOST_UID}
+                HOST_GID: ${HOST_GID}
+            dockerfile: ./Dockerfile
+        container_name: ${COMPOSE_PROJECT_NAME}-symfony
+        restart: always
+        depends_on:
+            - mysql
+            - rabbitmq
+        networks:
+            - symfony
 
     ### Cron tasks, RabbitMQ consumers
     supervisord:
-      <<: *symfony-template
-      container_name: ${COMPOSE_PROJECT_NAME}-supervisord
-      expose: []
-      command: ["/usr/bin/supervisord"]
+        <<: *symfony-template
+        container_name: ${COMPOSE_PROJECT_NAME}-supervisord
+        expose: [ ]
+        command: [ "/usr/bin/supervisord" ]
 
     mysql:
-      image: mysql:${MYSQL_VERSION}
-      platform: linux/x86_64
-      container_name: ${COMPOSE_PROJECT_NAME}-mysql
-      restart: always
-      command: --innodb-use-native-aio=${INNODB_USE_NATIVE_AIO:-1} --sql_mode=${SQL_MODE:-"ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"}
-      environment:
-        MYSQL_ROOT_PASSWORD: secret
-        MYSQL_DATABASE: symfony
-      volumes:
-        - ./var/mysql-data:/var/lib/mysql:delegated
-      networks:
-        - symfony
+        image: mysql:${MYSQL_VERSION}
+        platform: linux/x86_64
+        container_name: ${COMPOSE_PROJECT_NAME}-mysql
+        restart: always
+        command: --innodb-use-native-aio=${INNODB_USE_NATIVE_AIO:-1} --sql_mode=${SQL_MODE:-"ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"}
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: symfony
+        volumes:
+            - ./var/mysql-data:/var/lib/mysql:delegated
+        networks:
+            - symfony
 
     rabbitmq:
-      image: ${COMPOSE_PROJECT_NAME}-rabbitmq
-      build:
-        context: ./docker/rabbitmq/
-        dockerfile: ./Dockerfile
-      container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
-      restart: always
-      environment:
-        RABBITMQ_ERLANG_COOKIE: 7ead507151fc4461b9f45c1161384a04
-        RABBITMQ_DEFAULT_USER: guest
-        RABBITMQ_DEFAULT_PASS: guest
-        RABBITMQ_DEFAULT_VHOST: /
-      ports:
-        - "15672:15672"
-      volumes:
-        - ./var/rabbitmq:/var/lib/rabbitmq:delegated
-      networks:
-        - symfony
+        image: ${COMPOSE_PROJECT_NAME}-rabbitmq
+        build:
+            context: ./docker/rabbitmq/
+            dockerfile: ./Dockerfile
+        container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
+        hostname: rabbitmq
+        restart: always
+        environment:
+            RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+            RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+            RABBITMQ_DEFAULT_VHOST: /
+        ports:
+            - "${RABBITMQ_MANAGEMENT_PORT}:15672"
+        volumes:
+            - ./var/rabbitmq:/var/lib/rabbitmq:delegated
+        networks:
+            - symfony
 
 networks:
-  symfony:
-    name: symfony
+    symfony:
+        name: symfony

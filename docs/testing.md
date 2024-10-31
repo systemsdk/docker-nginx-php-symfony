@@ -2,9 +2,10 @@
 This document describing how you can run tests within this environment.
 
 ### General
-This environment contains next types of tests:
+This environment contains next [types](https://symfony.com/doc/current/testing.html#types-of-tests) of tests:
 
 * Application tests (TODO: Implement it)
+* Integration tests (TODO: Implement it)
 * Unit tests (TODO: Implement it)
 
 All tests relies to [PHPUnit](https://phpunit.de/) library.
