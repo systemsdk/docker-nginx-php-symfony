@@ -31,6 +31,7 @@ build:
     - make messenger-setup-transports
     - *general_scripts
     - make phpunit
+    - make composer-audit
     - make ecs
     - make phpcs
     - make phpstan

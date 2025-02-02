@@ -1,4 +1,5 @@
-FROM php:8.3-fpm
+# syntax=docker/dockerfile:1.7-labs
+FROM php:8.4-fpm
 
 # set main params
 ARG BUILD_ARGUMENT_ENV=dev
@@ -11,8 +12,9 @@ ARG INSIDE_DOCKER_CONTAINER=1
 ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
 ARG XDEBUG_CONFIG=main
 ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
-ARG XDEBUG_VERSION=3.3.2
+ARG XDEBUG_VERSION=3.4.1
 ENV XDEBUG_VERSION=$XDEBUG_VERSION
+ENV PHP_CS_FIXER_IGNORE_ENV=1
 
 # check environment
 RUN if [ "$BUILD_ARGUMENT_ENV" = "default" ]; then echo "Set BUILD_ARGUMENT_ENV in docker build-args like --build-arg BUILD_ARGUMENT_ENV=dev" && exit 2; \
@@ -42,6 +44,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       libzip-dev \
       wget \
       librabbitmq-dev \
+      debsecan \
     && pecl install amqp \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure intl \
@@ -52,6 +55,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       opcache \
       zip \
     && docker-php-ext-enable amqp \
+    && apt-get install --no-install-recommends -y \
+        $(debsecan --suite bookworm --format packages --only-fixed) \
     && rm -rf /tmp/* \
     && rm -rf /var/list/apt/* \
     && rm -rf /var/lib/apt/lists/* \
@@ -72,10 +77,6 @@ COPY ./docker/$BUILD_ARGUMENT_ENV/php.ini /usr/local/etc/php/php.ini
 COPY ./docker/general/do_we_need_xdebug.sh /tmp/
 COPY ./docker/dev/xdebug-${XDEBUG_CONFIG}.ini /tmp/xdebug.ini
 RUN chmod u+x /tmp/do_we_need_xdebug.sh && /tmp/do_we_need_xdebug.sh
-
-# install security-checker in case dev/test environment
-COPY ./docker/general/do_we_need_security-checker.sh /tmp/
-RUN chmod u+x /tmp/do_we_need_security-checker.sh && /tmp/do_we_need_security-checker.sh
 
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

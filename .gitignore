@@ -20,6 +20,11 @@ reports/*
 .phpunit.cache
 ###< symfony/phpunit-bridge ###
 
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
 ###> friendsofphp/php-cs-fixer ###
 .php-cs-fixer.cache
 .php_cs

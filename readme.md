@@ -19,10 +19,10 @@ Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
 1. Nginx 1.27
-2. PHP 8.3 fpm
+2. PHP 8.4 fpm
 3. MySQL 8
 4. Symfony 7
-5. RabbitMQ 3
+5. RabbitMQ 4
 6. Mailpit (only for debug emails on dev environment)
 
 ## Setting up Docker Engine with Docker Compose
@@ -210,6 +210,7 @@ make ssh-rabbitmq
 make composer-install-no-dev
 make composer-install
 make composer-update
+make composer-audit
 
 make info
 make help

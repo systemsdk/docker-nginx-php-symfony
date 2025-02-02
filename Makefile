@@ -245,6 +245,9 @@ composer-install: ## Installs composer dependencies
 composer-update: ## Updates composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
+composer-audit: ## Checks for security vulnerability advisories for installed packages
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit"
+
 info: ## Shows Php and Symfony version
 	@make exec cmd="php --version"
 	@make exec cmd="bin/console about"
@@ -333,7 +336,7 @@ else
 endif
 
 phpcpd: ## Runs php copy/paste detector
-	@make exec cmd="php phpcpd.phar --fuzzy src tests"
+	@make exec cmd="php phpcpd.phar --fuzzy --verbose src tests"
 
 phpmd: ## Runs php mess detector
 	@make exec cmd="php ./vendor/bin/phpmd src,tests text phpmd_ruleset.xml --suffixes php"

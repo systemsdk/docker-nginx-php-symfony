@@ -2,7 +2,7 @@
 This document describing commands that can be used in local shell or inside symfony container shell.
 
 ## Local shell (Makefile)
-This environment comes with "Makefile" and it allow to simplify using some functionality.
+This environment comes with "Makefile" and it allows to simplify using some functionality.
 In order to use command listed bellow just use next syntax in your local shell: `make {command name}`.
 Next commands available for this environment:
 ```bash
@@ -56,6 +56,7 @@ make wait-for-db                # Checks MySQL database availability, using for 
 make composer-install-no-dev    # Installs composer no-dev dependencies
 make composer-install           # Installs composer dependencies
 make composer-update            # Updates composer dependencies
+make composer-audit             # Checks for security vulnerability advisories for installed packages
 
 make info                       # Shows Php and Symfony version
 

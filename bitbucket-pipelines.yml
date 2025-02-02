@@ -17,6 +17,7 @@ pipelines:
           - make messenger-setup-transports
           - make info
           - make phpunit
+          - make composer-audit
           - make ecs
           - make phpcs
           - make phpstan
