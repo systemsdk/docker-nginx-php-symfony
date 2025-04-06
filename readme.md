@@ -10,8 +10,8 @@ Docker environment required to run Symfony (based on official php and mysql dock
 [Source code](https://github.com/systemsdk/docker-nginx-php-symfony.git)
 
 ## Requirements
-* Docker Engine version 18.06 or later
-* Docker Compose version 1.22 or later
+* Docker Engine version 23.0 or later
+* Docker Compose version 2.0 or later
 * An editor or IDE
 * MySQL Workbench
 
