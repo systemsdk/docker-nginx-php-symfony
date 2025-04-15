@@ -265,7 +265,7 @@ Notes: Please see more commands in Makefile
 * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
 * [easy-coding-standard](https://github.com/Symplify/EasyCodingStandard)
 * [PhpMetrics](https://github.com/phpmetrics/PhpMetrics)
-* [phpcpd](https://github.com/systemsdk/phpcpd)
+* [phpcpd](https://packagist.org/packages/systemsdk/phpcpd)
 * [phpmd](https://packagist.org/packages/phpmd/phpmd)
 * [phpstan](https://packagist.org/packages/phpstan/phpstan)
 * [phpinsights](https://packagist.org/packages/nunomaduro/phpinsights)

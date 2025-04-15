@@ -336,7 +336,7 @@ else
 endif
 
 phpcpd: ## Runs php copy/paste detector
-	@make exec cmd="php phpcpd.phar --fuzzy --verbose src tests"
+	@make exec cmd="php ./vendor/bin/phpcpd --fuzzy --verbose src tests"
 
 phpmd: ## Runs php mess detector
 	@make exec cmd="php ./vendor/bin/phpmd src,tests text phpmd_ruleset.xml --suffixes php"
