@@ -237,6 +237,7 @@ make ecs
 make ecs-fix
 make phpmetrics
 make phpcpd
+make phpcpd-html-report
 make phpmd
 make phpstan
 make phpinsights

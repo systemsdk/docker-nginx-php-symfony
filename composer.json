@@ -35,7 +35,7 @@
 		"doctrine/annotations": "^2.0.2",
 		"doctrine/doctrine-bundle": "^2.14.0",
 		"doctrine/doctrine-migrations-bundle": "^3.4.1",
-		"doctrine/orm": "^2.20.2",
+		"doctrine/orm": "^2.20.3",
 		"phpdocumentor/reflection-docblock": "^5.6.2",
 		"dukecity/command-scheduler-bundle": "^6.0.4",
 		"symfony/amqp-messenger": "7.2.*",
@@ -73,8 +73,8 @@
 		"symfony/validator": "7.2.*",
 		"symfony/web-link": "7.2.*",
 		"symfony/yaml": "7.2.*",
-		"twig/extra-bundle": "^2.12|^3.20",
-		"twig/twig": "^2.12|^3.20"
+		"twig/extra-bundle": "^2.12|^3.21",
+		"twig/twig": "^2.12|^3.21.1"
 	},
 	"conflict": {
 		"symfony/debug": "<3.3",
@@ -88,7 +88,7 @@
 		"roave/security-advisories": "dev-latest",
 		"symfony/browser-kit": "7.2.*",
 		"symfony/debug-bundle": "7.2.*",
-		"symfony/maker-bundle": "^1.62.1",
+		"symfony/maker-bundle": "^1.63.0",
 		"symfony/requirements-checker": "^2.0.3",
 		"symfony/stopwatch": "7.2.*",
 		"symfony/var-dumper": "7.2.*",

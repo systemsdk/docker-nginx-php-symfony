@@ -45,6 +45,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       wget \
       librabbitmq-dev \
       debsecan \
+      xalan \
     && pecl install amqp \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-configure intl \
