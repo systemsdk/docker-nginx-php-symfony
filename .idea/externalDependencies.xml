@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="String Manipulation" />
+    <plugin id="com.kalessil.phpStorm.phpInspectionsEA" />
+    <plugin id="de.espend.idea.php.annotation" />
+    <plugin id="de.espend.idea.php.toolbox" />
+    <plugin id="fr.adrienbrault.idea.symfony2plugin" />
+    <plugin id="izhangzhihao.rainbow.brackets" />
+    <plugin id="mobi.hsz.idea.gitignore" />
+  </component>
+</project>

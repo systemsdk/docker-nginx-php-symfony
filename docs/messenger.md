@@ -1,5 +1,5 @@
 # Messenger
-This document describing how you can use [symfony/messenger](https://symfony.com/doc/current/messenger.html) bundle inside this environment.
+This document describing how you can use [symfony/messenger](https://symfony.com/doc/current/messenger.html) bundle.
 
 ## Using messenger
 ### Description
