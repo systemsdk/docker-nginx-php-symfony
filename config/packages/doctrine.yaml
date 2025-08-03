@@ -32,9 +32,9 @@ doctrine:
             auto_mapping: false
 
 when@prod: &not-dev
-    dbal:
-        logging: false
     doctrine:
+        dbal:
+            logging: false
         orm:
             auto_generate_proxy_classes: false
             proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
