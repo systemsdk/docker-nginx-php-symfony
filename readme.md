@@ -18,7 +18,7 @@ Docker environment required to run Symfony (based on official php and mysql dock
 Note: OS recommendation - Linux Ubuntu based.
 
 ## Components
-1. Nginx 1.27
+1. Nginx 1.29
 2. PHP 8.4 fpm
 3. MySQL 8
 4. Symfony 7
@@ -35,7 +35,7 @@ Note 2: If you are using Docker Desktop for MacOS 12.2 or later - please enable 
 ## Setting up DEV environment
 1.You can clone this repository from GitHub or install via composer.
 
-If you have installed composer and want to install environment via composer you can use next cmd command:
+If you have installed composer and want to install environment via composer, you can use the next cmd command:
 ```bash
 composer create-project systemsdk/docker-nginx-php-symfony example-app
 ```
@@ -46,11 +46,11 @@ Note 1: You can get unique secret key for example [here](http://nux.net/secret).
 
 Note 2: Do not use .env.local.php on dev and test environment (delete it if exist).
 
-Note 3: If you want to change default web port/xdebug configuration you can create .env.local file and set some params (see .env file).
+Note 3: If you want to change a default web port/xdebug configuration, you can create .env.local file and set some params (see .env file).
 
 Note 4: Delete var/mysql-data folder if it exists.
 
-3.Add domain to local 'hosts' file:
+3.Add domain to local `hosts` file:
 ```bash
 127.0.0.1    localhost
 ```
@@ -63,7 +63,7 @@ xdebug.start_with_request = no
 ```
 Install locally in Firefox extension "Xdebug helper" and set in settings IDE KEY: PHPSTORM
 
-- In case you need debug any request to an api (by default):
+- In case you need to debug any request to an api (by default):
 ```bash
 xdebug.start_with_request = yes
 ```
@@ -283,7 +283,7 @@ Notes: Please see more commands in Makefile
 ## Working on your project
 1. For new feature development, fork `develop` branch into a new branch with one of the two patterns:
     * `feature/{ticketNo}`
-2. Commit often, and write descriptive commit messages, so its easier to follow steps taken when reviewing.
+2. Commit often, and write descriptive commit messages, so it's easier to follow steps taken when reviewing.
 3. Push this branch to the repo and create pull request into `develop` to get feedback, with the format `feature/{ticketNo}` - "Short descriptive title of Jira task".
 4. Iterate as needed.
 5. Make sure that "All checks have passed" on CircleCI(or another one in case you are not using CircleCI) and status is green.
