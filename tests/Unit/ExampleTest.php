@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit;
 
-use App\Tests\UnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @package App\Tests\Unit
  */
-class ExampleTest extends UnitTestCase
+class ExampleTest extends TestCase
 {
     /**
      * A basic test example.

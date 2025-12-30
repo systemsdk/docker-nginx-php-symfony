@@ -12,7 +12,7 @@ ARG INSIDE_DOCKER_CONTAINER=1
 ENV INSIDE_DOCKER_CONTAINER=$INSIDE_DOCKER_CONTAINER
 ARG XDEBUG_CONFIG=main
 ENV XDEBUG_CONFIG=$XDEBUG_CONFIG
-ARG XDEBUG_VERSION=3.4.5
+ARG XDEBUG_VERSION=3.5.0
 ENV XDEBUG_VERSION=$XDEBUG_VERSION
 ENV PHP_CS_FIXER_IGNORE_ENV=1
 
@@ -55,6 +55,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
       intl \
       opcache \
       zip \
+      bcmath \
     && docker-php-ext-enable amqp \
     && apt-get install --no-install-recommends -y \
         $(debsecan --suite bookworm --format packages --only-fixed) \

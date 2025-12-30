@@ -246,7 +246,7 @@ composer-update: ## Updates composer dependencies
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
 composer-audit: ## Checks for security vulnerability advisories for installed packages
-	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit --abandoned=ignore"
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer audit --abandoned=report"
 
 info: ## Shows Php and Symfony version
 	@make exec cmd="php --version"
@@ -301,7 +301,7 @@ migrate: ## Runs all migrations for main/test databases
 	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --env=test"
 
 fixtures: ## Runs all fixtures for test database without --append option (tables will be dropped and recreated)
-	@make exec cmd="php bin/console doctrine:fixtures:load --env=test"
+	@make exec cmd="php bin/console doctrine:fixtures:load --env=test --no-interaction"
 
 messenger-setup-transports: ## Initializes transports for Symfony Messenger bundle
 	@make exec cmd="php bin/console messenger:setup-transports"
