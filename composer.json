@@ -23,7 +23,15 @@
 	],
 	"funding": [
 		{
-			"type": "other",
+			"type": "github",
+			"url": "https://github.com/sponsors/systemsdk"
+		},
+		{
+			"type": "open_collective",
+			"url": "https://opencollective.com/systemsdk-engineering"
+		},
+		{
+			"type": "wayforpay",
 			"url": "https://secure.wayforpay.com/button/b0b1af16db515"
 		}
 	],
@@ -41,7 +49,7 @@
 		"doctrine/doctrine-bundle": "3.2.*",
 		"doctrine/doctrine-migrations-bundle": "4.0.*",
 		"doctrine/orm": "3.6.*",
-		"phpdocumentor/reflection-docblock": "^5.6.6",
+		"phpdocumentor/reflection-docblock": "^5.6.7",
 		"dukecity/command-scheduler-bundle": "6.0.*",
 		"symfony/amqp-messenger": "7.4.*",
 		"symfony/asset": "7.4.*",
@@ -70,16 +78,16 @@
 		"symfony/routing": "7.4.*",
 		"symfony/security-bundle": "7.4.*",
 		"symfony/serializer": "7.4.*",
-		"symfony/stimulus-bundle": "^2.31.0",
+		"symfony/stimulus-bundle": "^2.33.0",
 		"symfony/string": "7.4.*",
 		"symfony/translation": "7.4.*",
 		"symfony/twig-bundle": "7.4.*",
-		"symfony/ux-turbo": "^2.31.0",
+		"symfony/ux-turbo": "^2.33.0",
 		"symfony/validator": "7.4.*",
 		"symfony/web-link": "7.4.*",
 		"symfony/yaml": "7.4.*",
-		"twig/extra-bundle": "^2.12|^3.22.2",
-		"twig/twig": "^2.12|^3.22.2"
+		"twig/extra-bundle": "^2.12|^3.24.0",
+		"twig/twig": "^2.12|^3.24.0"
 	},
 	"conflict": {
 		"symfony/debug": "<3.3",
@@ -87,12 +95,12 @@
 		"symfony/twig-bundle": "<3.3"
 	},
 	"require-dev": {
-		"bamarni/composer-bin-plugin": "^1.8.3",
+		"bamarni/composer-bin-plugin": "^1.9.1",
 		"doctrine/doctrine-fixtures-bundle": "^4.3.1",
-		"systemsdk/easy-log-bundle": "^2.0.1",
+		"systemsdk/easy-log-bundle": "^2.1.0",
 		"roave/security-advisories": "dev-latest",
 		"symfony/debug-bundle": "7.4.*",
-		"symfony/maker-bundle": "^1.65.1",
+		"symfony/maker-bundle": "^1.67.0",
 		"symfony/requirements-checker": "^2.0.3",
 		"symfony/stopwatch": "7.4.*",
 		"symfony/var-dumper": "7.4.*",
