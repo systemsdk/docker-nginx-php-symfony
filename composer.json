@@ -36,7 +36,7 @@
 		}
 	],
 	"require": {
-		"php": "^8.4.0",
+		"php": "^8.5.0",
 		"ext-amqp": "*",
 		"ext-ctype": "*",
 		"ext-iconv": "*",
@@ -49,7 +49,8 @@
 		"doctrine/doctrine-bundle": "3.2.*",
 		"doctrine/doctrine-migrations-bundle": "4.0.*",
 		"doctrine/orm": "3.6.*",
-		"phpdocumentor/reflection-docblock": "^5.6.7",
+		"friendsofphp/proxy-manager-lts": "^1.0.19",
+		"phpdocumentor/reflection-docblock": "^6.0.3",
 		"dukecity/command-scheduler-bundle": "6.0.*",
 		"symfony/amqp-messenger": "7.4.*",
 		"symfony/asset": "7.4.*",
@@ -73,16 +74,15 @@
 		"symfony/process": "7.4.*",
 		"symfony/property-access": "7.4.*",
 		"symfony/property-info": "7.4.*",
-		"symfony/proxy-manager-bridge": "6.4.*",
 		"symfony/runtime": "7.4.*",
 		"symfony/routing": "7.4.*",
 		"symfony/security-bundle": "7.4.*",
 		"symfony/serializer": "7.4.*",
-		"symfony/stimulus-bundle": "^2.33.0",
+		"symfony/stimulus-bundle": "^2.34.0",
 		"symfony/string": "7.4.*",
 		"symfony/translation": "7.4.*",
 		"symfony/twig-bundle": "7.4.*",
-		"symfony/ux-turbo": "^2.33.0",
+		"symfony/ux-turbo": "^2.34.0",
 		"symfony/validator": "7.4.*",
 		"symfony/web-link": "7.4.*",
 		"symfony/yaml": "7.4.*",
@@ -120,7 +120,7 @@
 	"config": {
 		"allow-plugins": true,
 		"platform": {
-			"php": "8.4.0"
+			"php": "8.5.0"
 		},
 		"preferred-install": {
 			"*": "dist"
