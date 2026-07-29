@@ -1,9 +1,21 @@
 * text=auto
+
+### Enforce LF for infrastructure (CRITICAL for Docker on Windows)
+Makefile text eol=lf
+Dockerfile text eol=lf
+docker/** text eol=lf
+*.sh text eol=lf
+
+### Exclude frontend assets from language stats
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
+
+### Exclude from archives
 CHANGELOG.md export-ignore
+
+### Hide generated files in PRs but prevent text auto-merging
 docs/postman/symfony.postman_collection.json binary
-tools/**/composer.lock binary
-composer.lock binary
-symfony.lock binary
+tools/**/composer.lock linguist-generated=true -merge
+composer.lock linguist-generated=true -merge
+symfony.lock linguist-generated=true -merge

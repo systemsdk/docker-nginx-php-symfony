@@ -1,7 +1,10 @@
 ### User-specific stuff:
 /.git*
-/.idea/workspace.xml
+.DS_Store
+.vscode/
+/.idea/
 .dockerignore
+/node_modules/
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -10,6 +13,11 @@
 /public/bundles/
 /vendor/
 ###< symfony/framework-bundle ###
+
+### Exclude local app artifacts ###
+/var/cache/
+/var/log/
+/reports/
 
 ### Other data
 /var/mysql-data

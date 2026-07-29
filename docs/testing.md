@@ -25,7 +25,7 @@ make phpunit
 
 After the command finishes, you can open the code coverage report in your browser. The report is generated at: `reports/coverage/index.html`.
 
-### 2. Run Specific Tests (Advanced):
+### 2. Run Specific Tests (Advanced)
 
 If you need to run a single test file, a specific directory, or a test suite (e.g., only "Unit" tests), you must do so from within the container's shell.
 

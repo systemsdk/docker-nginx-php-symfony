@@ -192,6 +192,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php85" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/file-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/01_phpunit/vendor/sebastian/git-state" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

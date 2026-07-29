@@ -123,7 +123,7 @@
     </inspection_tool>
     <inspection_tool class="PhpDocSignatureInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PhpMethodOrClassCallIsNotCaseSensitiveInspection" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="PhpMissingDocCommentInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PhpMissingDocCommentInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpMissingParentCallCommonInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="PhpMissingParentCallMagicInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PhpMissingStrictTypesDeclarationInspection" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -204,6 +204,7 @@
     <inspection_tool class="SubStrUsedAsStrPosInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TernaryOperatorSimplifyInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThrowRawExceptionInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TransitiveDependenciesUsageInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TypeUnsafeArraySearchInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnqualifiedReferenceInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="REPORT_ALL_FUNCTIONS" value="true" />

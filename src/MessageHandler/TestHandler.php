@@ -12,8 +12,6 @@ use Throwable;
 /**
  * If you need handling multiple - follow https://symfony.com/doc/current/messenger.html#handling-multiple-messages
  * TODO: This is handler example, you can delete it.
- *
- * @package App\MessageHandler
  */
 #[AsMessageHandler]
 class TestHandler

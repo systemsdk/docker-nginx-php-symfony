@@ -8,8 +8,6 @@ use App\Message\Interfaces\MessageHighInterface;
 
 /**
  * TODO: This is message example, you can delete it.
- *
- * @package App\Message
  */
 class TestMessage implements MessageHighInterface
 {

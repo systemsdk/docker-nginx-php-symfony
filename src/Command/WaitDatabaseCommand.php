@@ -12,9 +12,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
-/**
- * @package App\Command\Utils
- */
 #[AsCommand(
     name: 'db:wait',
     description: 'Waits for database availability.',
@@ -38,7 +35,7 @@ class WaitDatabaseCommand extends Command
     /**
      * @noinspection PhpMissingParentCallCommonInspection
      *
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
      */

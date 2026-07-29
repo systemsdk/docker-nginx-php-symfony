@@ -7,9 +7,6 @@ namespace App\Tests\Application;
 use App\Tests\ApplicationTestCase;
 use Throwable;
 
-/**
- * @package App\Tests
- */
 class ExampleTest extends ApplicationTestCase
 {
     /**

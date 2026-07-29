@@ -1,196 +1,194 @@
 {
-	"name": "systemsdk/docker-nginx-php-symfony",
-	"type": "project",
-	"description": "Docker symfony environment",
-	"keywords": [
-		"Docker",
-		"Nginx",
-		"Php",
-		"Symfony",
-		"Supervisord",
-		"MySQL",
-		"RabbitMQ"
-	],
-	"homepage": "https://github.com/systemsdk/docker-nginx-php-symfony",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Dmitry Kravtsov",
-			"email": "dmytro.kravtsov@systemsdk.com",
-			"homepage": "https://github.com/systemsdk",
-			"role": "Developer"
-		}
-	],
-	"funding": [
-		{
-			"type": "github",
-			"url": "https://github.com/sponsors/systemsdk"
-		},
-		{
-			"type": "open_collective",
-			"url": "https://opencollective.com/systemsdk-engineering"
-		},
-		{
-			"type": "wayforpay",
-			"url": "https://secure.wayforpay.com/button/b0b1af16db515"
-		}
-	],
-	"require": {
-		"php": "^8.5.0",
-		"ext-amqp": "*",
-		"ext-ctype": "*",
-		"ext-iconv": "*",
-		"ext-json": "*",
-		"ext-mbstring": "*",
-		"ext-hash": "*",
-		"ext-openssl": "*",
-		"ext-pdo": "*",
-		"ext-pdo_mysql": "*",
-		"doctrine/doctrine-bundle": "3.2.*",
-		"doctrine/doctrine-migrations-bundle": "4.0.*",
-		"doctrine/orm": "3.6.*",
-		"friendsofphp/proxy-manager-lts": "^1.0.19",
-		"phpdocumentor/reflection-docblock": "^6.0.3",
-		"dukecity/command-scheduler-bundle": "6.0.*",
-		"symfony/amqp-messenger": "7.4.*",
-		"symfony/asset": "7.4.*",
-		"symfony/asset-mapper": "7.4.*",
-		"symfony/config": "7.4.*",
-		"symfony/console": "7.4.*",
-		"symfony/doctrine-bridge": "7.4.*",
-		"symfony/doctrine-messenger": "7.4.*",
-		"symfony/dotenv": "7.4.*",
-		"symfony/expression-language": "7.4.*",
-		"symfony/flex": "^2.10.0",
-		"symfony/form": "7.4.*",
-		"symfony/framework-bundle": "7.4.*",
-		"symfony/http-client": "7.4.*",
-		"symfony/intl": "7.4.*",
-		"symfony/mailer": "7.4.*",
-		"symfony/messenger": "7.4.*",
-		"symfony/mime": "7.4.*",
-		"symfony/monolog-bundle": "^4.0.1",
-		"symfony/notifier": "7.4.*",
-		"symfony/process": "7.4.*",
-		"symfony/property-access": "7.4.*",
-		"symfony/property-info": "7.4.*",
-		"symfony/runtime": "7.4.*",
-		"symfony/routing": "7.4.*",
-		"symfony/security-bundle": "7.4.*",
-		"symfony/serializer": "7.4.*",
-		"symfony/stimulus-bundle": "^2.34.0",
-		"symfony/string": "7.4.*",
-		"symfony/translation": "7.4.*",
-		"symfony/twig-bundle": "7.4.*",
-		"symfony/ux-turbo": "^2.34.0",
-		"symfony/validator": "7.4.*",
-		"symfony/web-link": "7.4.*",
-		"symfony/yaml": "7.4.*",
-		"twig/extra-bundle": "^2.12|^3.24.0",
-		"twig/twig": "^2.12|^3.24.0"
-	},
-	"conflict": {
-		"symfony/debug": "<3.3",
-		"symfony/symfony": "*",
-		"symfony/twig-bundle": "<3.3"
-	},
-	"require-dev": {
-		"bamarni/composer-bin-plugin": "^1.9.1",
-		"doctrine/doctrine-fixtures-bundle": "^4.3.1",
-		"systemsdk/easy-log-bundle": "^2.1.0",
-		"roave/security-advisories": "dev-latest",
-		"symfony/debug-bundle": "7.4.*",
-		"symfony/maker-bundle": "^1.67.0",
-		"symfony/requirements-checker": "^2.0.3",
-		"symfony/stopwatch": "7.4.*",
-		"symfony/var-dumper": "7.4.*",
-		"symfony/web-profiler-bundle": "7.4.*"
-	},
-	"replace": {
-		"symfony/polyfill-ctype": "*",
-		"symfony/polyfill-mbstring": "*",
-		"symfony/polyfill-iconv": "*",
-		"symfony/polyfill-php72": "*",
-		"symfony/polyfill-php73": "*",
-		"symfony/polyfill-php74": "*",
-		"symfony/polyfill-php80": "*",
-		"symfony/polyfill-php81": "*",
-		"symfony/polyfill-php82": "*"
-	},
-	"config": {
-		"allow-plugins": true,
-		"platform": {
-			"php": "8.5.0"
-		},
-		"preferred-install": {
-			"*": "dist"
-		},
-		"bump-after-update": true,
-		"sort-packages": true
-	},
-	"extra": {
-		"allow-contrib": "true",
-		"bamarni-bin": {
-			"bin-links": true,
-			"forward-command": true,
-			"target-directory": "tools"
-		},
-		"symfony": {
-			"allow-contrib": true,
-			"require": "7.4.*"
-		}
-	},
-	"autoload": {
-		"psr-4": {
-			"App\\": "src/"
-		},
-		"classmap": [],
-		"exclude-from-classmap": []
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"App\\Tests\\": "tests/",
-			"PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
-			"Symfony\\Component\\BrowserKit\\": "tools/01_phpunit/vendor/symfony/browser-kit",
-			"Symfony\\Bridge\\PhpUnit\\": "tools/01_phpunit/vendor/symfony/phpunit-bridge",
-			"PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/bin",
-			"Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
-			"PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
-			"PHP_CodeSniffer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src",
-			"Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
-			"Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
-			"ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
-			"PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
-			"PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
-			"PHPStan\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Symfony",
-			"PHPStan\\Type\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Type/PHPUnit",
-			"PHPStan\\Type\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Type/Symfony",
-			"Rector\\": "tools/08_rector/vendor/rector"
-		}
-	},
-	"prefer-stable": true,
-	"scripts": {
-		"post-install-cmd": [
-			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
-			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi",
-			"@auto-scripts",
-			"@composer dump-autoload"
-		],
-		"post-update-cmd": [
-			"if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
-			"if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
-			"@auto-scripts",
-			"@composer dump-autoload"
-		],
-		"auto-scripts": {
-			"cache:clear": "symfony-cmd",
-			"cache:warmup": "symfony-cmd",
-			"assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
-			"assets:install %PUBLIC_DIR%": "symfony-cmd",
-			"importmap:install": "symfony-cmd"
-		}
-	},
-	"support": {
-		"issues": "https://github.com/systemsdk/docker-nginx-php-symfony/issues"
-	}
+    "name": "systemsdk/docker-nginx-php-symfony",
+    "type": "project",
+    "description": "Docker symfony environment",
+    "keywords": [
+        "Docker",
+        "Nginx",
+        "Php",
+        "Symfony",
+        "Supervisord",
+        "MySQL",
+        "RabbitMQ"
+    ],
+    "homepage": "https://github.com/systemsdk/docker-nginx-php-symfony",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Kravtsov",
+            "email": "dmitry.kravtsov@systemsdk.com",
+            "homepage": "https://github.com/systemsdk",
+            "role": "Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/systemsdk"
+        },
+        {
+            "type": "open_collective",
+            "url": "https://opencollective.com/systemsdk-engineering"
+        },
+        {
+            "type": "wayforpay",
+            "url": "https://secure.wayforpay.com/button/b0b1af16db515"
+        }
+    ],
+    "require": {
+        "php": "^8.5.0",
+        "ext-amqp": "*",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-hash": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "doctrine/doctrine-bundle": "3.2.*",
+        "doctrine/doctrine-migrations-bundle": "4.0.*",
+        "doctrine/orm": "3.6.*",
+        "friendsofphp/proxy-manager-lts": "^1.0.19",
+        "phpdocumentor/reflection-docblock": "^6.0.3",
+        "dukecity/command-scheduler-bundle": "6.0.*",
+        "symfony/amqp-messenger": "7.4.*",
+        "symfony/asset": "7.4.*",
+        "symfony/asset-mapper": "7.4.*",
+        "symfony/config": "7.4.*",
+        "symfony/console": "7.4.*",
+        "symfony/doctrine-bridge": "7.4.*",
+        "symfony/doctrine-messenger": "7.4.*",
+        "symfony/dotenv": "7.4.*",
+        "symfony/expression-language": "7.4.*",
+        "symfony/flex": "^2.11.0",
+        "symfony/form": "7.4.*",
+        "symfony/framework-bundle": "7.4.*",
+        "symfony/http-client": "7.4.*",
+        "symfony/intl": "7.4.*",
+        "symfony/mailer": "7.4.*",
+        "symfony/messenger": "7.4.*",
+        "symfony/mime": "7.4.*",
+        "symfony/monolog-bundle": "^4.0.2",
+        "symfony/notifier": "7.4.*",
+        "symfony/process": "7.4.*",
+        "symfony/property-access": "7.4.*",
+        "symfony/property-info": "7.4.*",
+        "symfony/runtime": "7.4.*",
+        "symfony/routing": "7.4.*",
+        "symfony/security-bundle": "7.4.*",
+        "symfony/serializer": "7.4.*",
+        "symfony/stimulus-bundle": "^2.36.0",
+        "symfony/string": "7.4.*",
+        "symfony/translation": "7.4.*",
+        "symfony/twig-bundle": "7.4.*",
+        "symfony/ux-turbo": "^2.36.0",
+        "symfony/validator": "7.4.*",
+        "symfony/web-link": "7.4.*",
+        "symfony/yaml": "7.4.*",
+        "twig/extra-bundle": "^2.12|^3.24.0",
+        "twig/twig": "^2.12|^3.28.0"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.9.1",
+        "doctrine/doctrine-fixtures-bundle": "^4.3.1",
+        "systemsdk/easy-log-bundle": "^2.1.0",
+        "roave/security-advisories": "dev-latest",
+        "symfony/debug-bundle": "7.4.*",
+        "symfony/maker-bundle": "^1.67.0",
+        "symfony/requirements-checker": "^2.0.3",
+        "symfony/stopwatch": "7.4.*",
+        "symfony/var-dumper": "7.4.*",
+        "symfony/web-profiler-bundle": "7.4.*"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php82": "*"
+    },
+    "config": {
+        "allow-plugins": true,
+        "platform": {
+            "php": "8.5.0"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "bump-after-update": true,
+        "sort-packages": true
+    },
+    "extra": {
+        "allow-contrib": "true",
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true,
+            "target-directory": "tools"
+        },
+        "symfony": {
+            "allow-contrib": true,
+            "require": "7.4.*"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "classmap": [],
+        "exclude-from-classmap": []
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/",
+            "PHPUnit\\": "tools/01_phpunit/vendor/phpunit/phpunit/src",
+            "Symfony\\Component\\BrowserKit\\": "tools/01_phpunit/vendor/symfony/browser-kit",
+            "Symfony\\Bridge\\PhpUnit\\": "tools/01_phpunit/vendor/symfony/phpunit-bridge",
+            "PHPMD\\": "tools/06_phpmd/vendor/phpmd/phpmd/bin",
+            "Systemsdk\\PhpCPD\\": "tools/10_phpcpd/vendor/systemsdk/phpcpd/src",
+            "PhpCsFixer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/src",
+            "PHP_CodeSniffer\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/src",
+            "Symplify\\CodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/coding-standard/src",
+            "Symplify\\EasyCodingStandard\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/src",
+            "ECSPrefix20210928\\Symplify\\RuleDocGenerator\\": "tools/03_ecs/vendor/symplify/easy-coding-standard/vendor/symplify/rule-doc-generator-contracts/src",
+            "PHPStan\\PhpDoc\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/PhpDoc/PHPUnit",
+            "PHPStan\\Rules\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Rules/PHPUnit",
+            "PHPStan\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Symfony",
+            "PHPStan\\Type\\PHPUnit\\": "tools/02_phpstan/vendor/phpstan/phpstan-phpunit/src/Type/PHPUnit",
+            "PHPStan\\Type\\Symfony\\": "tools/02_phpstan/vendor/phpstan/phpstan-symfony/src/Type/Symfony",
+            "Rector\\": "tools/08_rector/vendor/rector"
+        }
+    },
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
+            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all install; fi",
+            "@auto-scripts",
+            "@composer dump-autoload"
+        ],
+        "post-update-cmd": [
+            "if test -d vendor/symfony/requirements-checker; then ./vendor/bin/requirements-checker; fi",
+            "if test -d vendor/bamarni/composer-bin-plugin; then composer bin all update; fi",
+            "@auto-scripts",
+            "@composer dump-autoload"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "cache:warmup": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/systemsdk/docker-nginx-php-symfony/issues"
+    }
 }

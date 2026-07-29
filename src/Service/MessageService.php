@@ -9,9 +9,6 @@ use App\Service\Interfaces\MessageServiceInterface;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-/**
- * @package App\Service
- */
 class MessageService implements MessageServiceInterface
 {
     public function __construct(

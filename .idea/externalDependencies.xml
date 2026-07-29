@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalDependencies">
     <plugin id="String Manipulation" />
-    <plugin id="com.kalessil.phpStorm.phpInspectionsEA" />
+    <plugin id="com.kalessil.phpStorm.phpInspectionsUltimate-mp" />
     <plugin id="de.espend.idea.php.annotation" />
     <plugin id="de.espend.idea.php.toolbox" />
     <plugin id="fr.adrienbrault.idea.symfony2plugin" />
